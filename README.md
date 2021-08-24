@@ -17,4 +17,4 @@ console when the server starts, e.g. `Listening on port 3001`.
 
 
 ************************************************************************
-Prot 5 Orinoco, créer un site dynamique , initiation à Javascript
+Projet 5 Orinoco, créer un site dynamique , initiation à Javascript
