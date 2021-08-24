@@ -1,1 +1,10 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+.row {
+  border: 1px solid #7451EB;
+  padding: 3px;
+}
+
+.col {
+  border: 1px solid #ebae51;
+  padding: 3px;
+}
+/*# sourceMappingURL=style.css.map */

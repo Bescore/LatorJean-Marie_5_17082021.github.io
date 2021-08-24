@@ -1,8 +1,8 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAEA,AAAA,IAAI,CAAC;EACD,MAAM,EAAE,iBAAiB;EACzB,OAAO,EAAE,GAAG;CACf;;AAED,AAAA,IAAI,CAAC;EACD,MAAM,EAAE,iBAAiB;EACzB,OAAO,EAAE,GAAG;CAAE",
     "sources": [
-        "../Webpage/style.scss"
+        "../Frontend/style.scss"
     ],
     "names": [],
     "file": "style.css"
