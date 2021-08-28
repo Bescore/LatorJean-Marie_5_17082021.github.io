@@ -1,22 +1,31 @@
+//FONT//
+.bodyfont{
+    font-family: 'Courgette', cursive;
+}
+//couleurs//
+$gradient-top-left: linear-gradient(225deg, #463f3aff, #8a817cff, #bcb8b1ff, #f4f3eeff, #e0afa0ff);
+$gradient-radial: radial-gradient(#463f3aff, #8a817cff, #bcb8b1ff, #f4f3eeff, #e0afa0ff);
 //Page index//
-.card{
-    margin: 50px;
-    border: solid 1px black;
-    border-radius: 20px;
- 
+.card {
+  margin: 50px;
+  border: solid 1px black;
+  border-radius: 20px;
+  background:$gradient-radial;
 }
-.card:hover{
-    transform: scale(1.2);
+.back {
+  background:$gradient-top-left;
+}
+.card:hover {
+  transform: scale(1.2);
+}
+.card-img-top {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
 
-}
-.card-img-top{
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    
+main {
+  background: url("/Frontend/photo.jpg") no-repeat fixed center;
+  background-size: cover;
 }
 
-main{
-    background:url("/Frontend/photo.jpg") no-repeat fixed center;
-    background-size: cover;
-}
 
