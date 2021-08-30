@@ -1,5 +1,5 @@
 /* TEST récupération des informations de l'api et affichage de resultat en html*/
- fetch ("http://localhost:3000/api/cameras")
+fetch("http://localhost:3000/api/cameras")
   .then(response => response.json()
     .then(data => {
       console.log(data);
@@ -30,15 +30,15 @@ const id = getArticleId()
 //afficher l'article correspond a son id sur la page produit//
 
 fetch(`http://localhost:3000/api/cameras/${id}`)
-.then(resultat => resultat.json()
+  .then(resultat => resultat.json()
     .then(data2 => {
       console.log(data2);
-      let affichage2 = `<div   class="card" style="margin-right:auto; margin-left :auto;width: 30rem;">
+      let affichage2 = `<div class="card" style="margin-right:auto; margin-left :auto;width: 30rem;">
       <img class="card-img-top" src="${data2.imageUrl}" alt="Appareil photo">
       <div style="display:flex;justify-content-center;flex-direction:column" class="card-body">
-        <p style="text-align:center;font-weight: bold" class="card-text">${"Modèle :" + " " + data2.name}</p>
-        <p style="text-align:center;font-weight: bold" class="card-text">${"Prix :" + " " + data2.price + " " + "€"}</p>
-        <label style="margin-bottom:20px;margin-left:30%;font-weight: bold" for="lense-select">Choisissez la lentille :</label>
+        <p style="text-align:center;font-weight: bold" class="card-text"><span style="color:blue">Modèle :</span>${" " + " " + data2.name}</p>
+        <p style="text-align:center;font-weight: bold" class="card-text"><span style="color:white">Prix :</span>${" " + data2.price + " " + "€"}</p>
+        <label style="color: red;margin-bottom:20px;margin-left:30%;font-weight: bold" for="lense-select"> Lentilles :</label>
         <select " class="form-group id="lense-select">
   <option>${data2.lenses[0]}</option>
   <option>${data2.lenses[1]}</option>
@@ -47,7 +47,7 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
         <button id=${data2._id}  type="submit" class="btn btn-primary btn-sm touch ">Slectionner</button>
       </div>
     </div>`;
-      
+
       document.getElementById("mouv2").innerHTML = affichage2;
     }));
 
