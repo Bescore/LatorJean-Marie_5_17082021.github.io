@@ -15,7 +15,7 @@ $gradient-radial: radial-gradient(#463f3aff, #8a817cff, #bcb8b1ff, #f4f3eeff, #e
 .back {
   background:$gradient-top-left;
 }
-.card:hover {
+.cardtransfo:hover {
   transform: scale(1.2);
 }
 .card-img-top {

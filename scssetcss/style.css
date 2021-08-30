@@ -13,7 +13,7 @@
   background: linear-gradient(225deg, #463f3aff, #8a817cff, #bcb8b1ff, #f4f3eeff, #e0afa0ff);
 }
 
-.card:hover {
+.cardtransfo:hover {
   transform: scale(1.2);
 }
 
