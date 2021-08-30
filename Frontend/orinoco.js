@@ -7,7 +7,7 @@ fetch("http://localhost:3000/api/cameras")
       for (let dat of data) {
         affichage += `<div   class="card cardtransfo" style="width: 21rem;">
                 <img class="card-img-top" src="${dat.imageUrl}" alt="Appareil photo">
-                <a href="produit.html?article=${dat._id}" class=" stretched-link card-body">
+                <a href="produit.html?article=${dat._id}" style="text-decoration:none" class=" stretched-link card-body">
                   <p style="font-weight: bold" class="card-text">${"Modèle :" + " " + dat.name}</p>
                 </a>
               </div>`;
