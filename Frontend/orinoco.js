@@ -1,12 +1,12 @@
+
 /* TEST récupération des informations de l'api et affichage de resultat en html*/
 fetch("http://localhost:3000/api/cameras")
   .then(Resultatcamera => Resultatcamera.json()
     .then(cameras => {
-      console.log(cameras);
       let AffichageCamera = `<ul style="display:flex; flex-wrap:wrap; margin:auto; align-items : center;justify-content:center;">`;
       for (let camera of cameras) {
-        AffichageCamera += `<li   class="card cardtransfo" style="width: 21rem;">
-                <img class="card-img-top" src="${camera.imageUrl}" alt="Appareil photo">
+        AffichageCamera += `<li   class="card cardtransfo" >
+                <img class="card-img-top" src="${camera.imageUrl}" alt="Appareil photo" style="width:18rem">
                 <a href="produit.html?article=${camera._id}" style="text-decoration:none" class=" stretched-link card-body">
                   <p style="font-weight: bold" class="card-text">${"Modèle :" + " " + camera.name}</p>
                 </a>
@@ -14,7 +14,10 @@ fetch("http://localhost:3000/api/cameras")
       }
       AffichageCamera += '</ul>';
       document.getElementById("mouv").innerHTML = AffichageCamera;
-    }));
+      
+    })
+    .catch (function(){console.log('ne peut fetch la page index car vous êtes sur la mauvaise page')}
+    ));
 
 
 
@@ -32,7 +35,6 @@ const id = getArticleId()
 fetch(`http://localhost:3000/api/cameras/${id}`)
   .then(resultat => resultat.json()
     .then(data2 => {
-      console.log(data2);
       let Displaylenses
       let affichage2 = `<div class="card" style="margin-right:auto; margin-left :auto;width: 18rem;">
       <img class="card-img-top" src="${data2.imageUrl}" alt="Appareil photo">
@@ -40,9 +42,9 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
         <p style="text-align:center;font-weight: bold;" class="card-text"><span>Modèle :</span>${" " + " " + data2.name}</p>
         <p style="text-align:center;font-weight: bold" class="card-text"><span>Prix :</span>${" " + (data2.price / 100) + " " + "€"}</p>
         <label style="text-align:center;margin-bottom:20px;font-weight: bold" for="lense-select">Lentilles</label>
-        <select  class="form-group" id="lense-select">
+        <select  class="form-group" id="lense-select"></select>
   
-</select>
+        
         <button id=${data2.id}  type="button" onClick="isclicked(id)"   class="btn btn-primary btn-sm touch ">Selectionner</button>
         <button style="margin-top:10px" id=${data2._id}  type="submit" onclick="DeleletItem()" class="btn btn-primary btn-sm touch ">Supprimer du panier</button>
       </div>
@@ -64,30 +66,23 @@ function isclicked() {
 //recuperer le localstorage en tableau sur la page panier//
 function allStorage() {
 
-  var values = [];
-  let AffichageCamera = `<ul style="display:flex; flex-wrap:wrap; margin:auto; align-items : center;justify-content:center;">`;
-  for (var i = 0; i < localStorage.length; i++) {
+  let values = [];
+  let AffichageCamera ="";
+  for (let i = 0; i < localStorage.length; i++) {
     values.push(localStorage.getItem(localStorage.key(i)));
 
     fetch(`http://localhost:3000/api/cameras/${values[i]}`)
       .then(Resultatcamera => Resultatcamera.json()
         .then(cameras => {
-          console.log("panier :"+ cameras.name);
-          
-          AffichageCamera += `<li   class="card cardtransfo" style="width: 21rem;">
+          AffichageCamera += `<div   class="card cardtransfo" style="width: 21rem;">
           <img class="card-img-top" src="${cameras.imageUrl}" alt="Appareil photo">
           <a href="produit.html?article=${cameras._id}" style="text-decoration:none" class=" stretched-link card-body">
             <p style="font-weight: bold" class="card-text">${"Modèle :" + " " + cameras.name}</p>
           </a>
-        </li>`;
-
-        AffichageCamera += '</ul>';
-        document.getElementById("mouv3").innerHTML = AffichageCamera;
+        </div>`;
+          document.getElementById("mouv3").innerHTML = AffichageCamera;
         }));
-
+    
+  }
   }
   
-
-  return values;
-
-}
