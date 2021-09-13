@@ -6,8 +6,8 @@ fetch("http://localhost:3000/api/cameras")
       let AffichageCamera = `<ul style="display:flex; flex-wrap:wrap; margin:auto; align-items : center;justify-content:center;">`;
       for (let camera of cameras) {
         AffichageCamera += `<li   class="card cardtransfo" >
-                <img class="card-img-top" src="${camera.imageUrl}" alt="Appareil photo" style="width:18rem">
-                <a href="produit.html?article=${camera._id}" style="text-decoration:none" class=" stretched-link card-body">
+                <img class="card-img-top" src="${camera.imageUrl}" alt="Appareil photo">
+                <a href="produit.html?article=${camera._id}" style="text-decoration:none" class="stretched-link card-body">
                   <p style="font-weight: bold" class="card-text">${"Modèle :" + " " + camera.name}</p>
                 </a>
               </li>`;
@@ -46,7 +46,7 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
   
         
         <button id=${data2.id}  type="button" onClick="isclicked(id)"   class="btn btn-primary btn-sm touch ">Selectionner</button>
-        <button style="margin-top:10px" id=${data2._id}  type="submit" onclick="DeleletItem()" class="btn btn-primary btn-sm touch ">Supprimer du panier</button>
+        <button style="margin-top:10px" id=${data2._id}  type="submit" onclick="deleletItem(id)" class="btn btn-primary btn-sm touch ">Supprimer du panier</button>
       </div>
     </div>`;
       //boucle pour les lentilles//
@@ -63,12 +63,21 @@ function isclicked() {
   localStorage.setItem(id, id);
   alert('vous avez choisi ce produit')
 }
+ //DELETE ONE ITEM//
+  function deleletItem(){
+    localStorage.removeItem(id, id);
+    alert('vous avez enlevé ce produit du panier')
+};
+//DELETE ALL ITEM FIN//
+function deleteAllitem() {
+  localStorage.clear();
+};
 //recuperer le localstorage en tableau sur la page panier//
 function allStorage() {
-  ///TOTAL///
+  ///TOTAL VAR///
   var nombres = [];
 
-///total FIN///
+///TOTAL VAR///
   let values = [];
   let AffichageCamera ="";
   for (let i = 0; i < localStorage.length; i++) {
@@ -77,14 +86,14 @@ function allStorage() {
     fetch(`http://localhost:3000/api/cameras/${values[i]}`)
       .then(Resultatcamera => Resultatcamera.json()
         .then(cameras => {
-          AffichageCamera += `<div   class="card cardmouv">
+          AffichageCamera += `<div   class="card cardmouv cardpic">
           <img class="card-img-top" src="${cameras.imageUrl}" alt="Appareil photo">
           <a href="produit.html?article=${cameras._id}" style="text-decoration:none" class=" stretched-link card-body">
             <p style="font-weight: bold" class="card-text">${"Modèle :" + " " + cameras.name}</p>
           </a>
         </div>`;
           document.getElementById("mouv3").innerHTML = AffichageCamera;
-          
+        
           //COUT TOTAL//
           nombres.push(cameras.price / 100)
           console.log(nombres)

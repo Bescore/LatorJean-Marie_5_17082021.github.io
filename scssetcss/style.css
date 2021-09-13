@@ -8,6 +8,11 @@
   border-radius: 20px;
   background: radial-gradient(#463f3aff, #8a817cff, #bcb8b1ff, #f4f3eeff, #e0afa0ff);
   min-width: 200px;
+  width: 18rem;
+}
+
+.cardpic {
+  max-height: 220px;
 }
 
 .back {

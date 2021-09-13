@@ -12,7 +12,11 @@ $gradient-radial: radial-gradient(#463f3aff, #8a817cff, #bcb8b1ff, #f4f3eeff, #e
   border-radius: 20px;
   background:$gradient-radial;
   min-width: 200px;
-  
+  width: 18rem; 
+}
+.cardpic{
+  max-height: 220px;
+
 }
 .back {
   background:$gradient-top-left;
@@ -23,6 +27,7 @@ $gradient-radial: radial-gradient(#463f3aff, #8a817cff, #bcb8b1ff, #f4f3eeff, #e
 .cardmouv{
  width: 15rem;
 }
+
 .card-img-top {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -37,5 +42,4 @@ body {
 .box-flex{
   display: flex;
   flex-wrap: wrap;
-  
 }
