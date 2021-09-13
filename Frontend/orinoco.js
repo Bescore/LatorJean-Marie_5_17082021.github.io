@@ -65,7 +65,10 @@ function isclicked() {
 }
 //recuperer le localstorage en tableau sur la page panier//
 function allStorage() {
+  ///TOTAL///
+  var nombres = [];
 
+///total FIN///
   let values = [];
   let AffichageCamera ="";
   for (let i = 0; i < localStorage.length; i++) {
@@ -74,15 +77,21 @@ function allStorage() {
     fetch(`http://localhost:3000/api/cameras/${values[i]}`)
       .then(Resultatcamera => Resultatcamera.json()
         .then(cameras => {
-          AffichageCamera += `<div   class="card cardtransfo" style="width: 21rem;">
+          AffichageCamera += `<div   class="card cardmouv">
           <img class="card-img-top" src="${cameras.imageUrl}" alt="Appareil photo">
           <a href="produit.html?article=${cameras._id}" style="text-decoration:none" class=" stretched-link card-body">
             <p style="font-weight: bold" class="card-text">${"Modèle :" + " " + cameras.name}</p>
           </a>
         </div>`;
           document.getElementById("mouv3").innerHTML = AffichageCamera;
+          
+          //COUT TOTAL//
+          nombres.push(cameras.price / 100)
+          console.log(nombres)
+          for (var i = 0, somme = 0; i < nombres.length; somme += nombres[i++]);
+          document.getElementById("total").innerHTML = somme + "€";
+          //COUT TOTAL FIN//
         }));
-    
   }
   }
   
