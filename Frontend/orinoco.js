@@ -133,18 +133,18 @@ Prenom.addEventListener('change', getName);
 function getName() {
 
   isValidated(Prenom.value, "validate");
-  return (Prenom.value)
+  contact["firstName"]=`${Prenom.value}`
 }
-const getNaming = getName();
+
 //NOM//
 const Nom = document.getElementById("lastName");
 Nom.addEventListener('change', getlastName);
 function getlastName() {
 
   isValidated(Nom.value, "validate1");
-  return (Nom.value)
+  contact["lastName"]=`${Nom.value}`
 }
-const getlastNaming = getlastName()
+
 
 //ADRESS//
 const Adress = document.getElementById("adress");
@@ -152,9 +152,9 @@ Adress.addEventListener('change', getadress);
 function getadress() {
 
   isValidated(Adress.value, "validate2");
-  return (Adress.value)
+  contact["address"]=`${Adress.value}`
 }
-const getadressing = getadress()
+
 
 //VILLE//
 const City = document.getElementById("city");
@@ -162,20 +162,20 @@ City.addEventListener('change', getcity);
 function getcity() {
 
   isValidated(City.value, "validate3")
-  return (City.value)
+  contact["city"]=`${City.value}`
 
 }
-const getCitying = getcity()
+
 
 //EMAIL//
 const Email = document.getElementById("email");
 Email.addEventListener('change', getemail);
 function getemail() {
   console.log(Email.value)
-  return (Email.value)
+  contact["email"]=`${Email.value}`
 
 }
-const getEmailing = getemail()
+
 
 
 
@@ -185,11 +185,11 @@ const getEmailing = getemail()
 
 
 var contact = {
-  firstName: `sdsds`,
-  lastName: `sdsd`,
-  address: `dssds`,
-  city: `dsdsds`,
-  email: `${getEmailing}`,
+  firstName: "",
+  lastName: "",
+  address: "",
+  city: "",
+  email:""
 }
 //recupération des object dans le localstorage pour l'appel POST//
 var products = Object.keys(localStorage)
