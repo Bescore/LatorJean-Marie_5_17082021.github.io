@@ -8,7 +8,7 @@ fetch("http://localhost:3000/api/cameras")
         AffichageCamera += `<li   class="card cardtransfo" >
                 <img class="card-img-top" src="${camera.imageUrl}" alt="Appareil photo">
                 <a href="produit.html?article=${camera._id}"  class="stretched-link card-body">
-                  <p style="font-weight: bold" class="card-text">${"Modèle :" + " " + camera.name}</p>
+                  <p class="card-text">${"Modèle :" + " " + camera.name}</p>
                 </a>
               </li>`;
       }
@@ -46,7 +46,7 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
   
         
         <button id=${data2.id}  type="button" onClick="isclicked(id)"   class="btn btn-primary btn-sm touch ">Selectionner</button>
-        <button style="margin-top:10px" id=${data2._id}  type="submit" onclick="deleletItem(id)" class="btn btn-primary btn-sm touch ">Supprimer du panier</button>
+        <button id=${data2._id}  type="submit" onclick="deleletItem(id)" class="btn btn-primary btn-sm touch ">Supprimer du panier</button>
       </div>
     </div>`;
       //boucle pour les lentilles//
@@ -75,11 +75,12 @@ function deleteAllitem() {
 //recuperer le localstorage en tableau sur la page panier//
 function allStorage() {
   ///TOTAL VAR///
-  var nombres = [];
+  var nombresTot = [];
 
   ///TOTAL VAR///
   let values = [];
-  let AffichageCamera = "";
+  var AffichageCamera = "";
+  var somme = 0;
   for (let i = 0; i < localStorage.length; i++) {
     values.push(localStorage.getItem(localStorage.key(i)));
 
@@ -89,80 +90,59 @@ function allStorage() {
           AffichageCamera += `<div   class="card cardmouv cardpic">
           <img class="card-img-top" src="${cameras.imageUrl}" alt="Appareil photo">
           <a href="produit.html?article=${cameras._id}" style="text-decoration:none" class=" stretched-link card-body">
-            <p style="font-weight: bold" class="card-text">${"Modèle :" + " " + cameras.name}</p>
+            <p class="card-text">${"Modèle :" + " " + cameras.name}</p>
           </a>
         </div>`;
           document.getElementById("mouv3").innerHTML = AffichageCamera;
 
           //COUT TOTAL//
-          nombres.push(cameras.price / 100)
-          console.log(nombres)
-          for (var i = 0, somme = 0; i < nombres.length; somme += nombres[i++]);
+          somme += cameras.price / 100;
           document.getElementById("total").innerHTML = somme + "€";
           //COUT TOTAL FIN//
 
+
+          /*nombresTot.push(cameras.price / 100)
+          console.log(nombresTot)
+          for (var i = 0, somme = 0; i < nombresTot.length; somme += nombresTot[i++]);
+          document.getElementById("total").innerHTML = somme + "€";*/
+
+
         }));
+
   }
+
 }
 
 
 
 //regex de validation//
-function isValidated() {
+function isValidated(x, id) {
   if (/^([A-Za-z])+$/.test(x)) {
     let valide = '<p class="text-success fs-6">Valide !</p>'
-    document.getElementById("validate").innerHTML = valide
+    document.getElementById(id).innerHTML = valide
   } else {
     let Nonvalide = '<p class="text-danger fs-6">Non valide ! veuillez remplir</p>'
-    document.getElementById("validate").innerHTML = Nonvalide
-  }
-}
-//regex de validation 1//
-function isValidated1() {
-  if (/^([A-Za-z])+$/.test(x)) {
-    let valide = '<p class="text-success fs-6">Valide !</p>'
-    document.getElementById("validate1").innerHTML = valide
-  } else {
-    let Nonvalide = '<p class="text-danger fs-6">Non valide ! veuillez remplir</p>'
-    document.getElementById("validate1").innerHTML = Nonvalide
-  }
-}
-//regex de validation 2//
-function isValidated2() {
-  if (/^([A-Za-z])+$/.test(x)) {
-    let valide = '<p class="text-success fs-6">Valide !</p>'
-    document.getElementById("validate2").innerHTML = valide
-  } else {
-    let Nonvalide = '<p class="text-danger fs-6">Non valide ! veuillez remplir</p>'
-    document.getElementById("validate2").innerHTML = Nonvalide
+    document.getElementById(id).innerHTML = Nonvalide
   }
 }
 
-//regex de validation 3//
-function isValidated3() {
-  if (/^([A-Za-z])+$/.test(x)) {
-    let valide = '<p class="text-success fs-6">Valide !</p>'
-    document.getElementById("validate3").innerHTML = valide
-  } else {
-    let Nonvalide = '<p class="text-danger fs-6">Non valide ! veuillez remplir</p>'
-    document.getElementById("validate3").innerHTML = Nonvalide
-  }
-}
 //ecoute du formulaire//
 //PRENOM//
 const Prenom = document.getElementById("firstName");
 Prenom.addEventListener('change', getName);
 function getName() {
-  x = Prenom.value
-  isValidated()
+
+  isValidated(Prenom.value, "validate");
+  return (Prenom.value)
 }
-const getNaming = getName()
+const getNaming = getName();
 //NOM//
 const Nom = document.getElementById("lastName");
 Nom.addEventListener('change', getlastName);
 function getlastName() {
-  x = Nom.value
-  isValidated1()
+
+  isValidated(Nom.value, "validate1");
+  return (Nom.value)
 }
 const getlastNaming = getlastName()
 
@@ -170,9 +150,9 @@ const getlastNaming = getlastName()
 const Adress = document.getElementById("adress");
 Adress.addEventListener('change', getadress);
 function getadress() {
-  x = Adress.value
-  isValidated2()
 
+  isValidated(Adress.value, "validate2");
+  return (Adress.value)
 }
 const getadressing = getadress()
 
@@ -180,8 +160,9 @@ const getadressing = getadress()
 const City = document.getElementById("city");
 City.addEventListener('change', getcity);
 function getcity() {
-  x = City.value
-  isValidated3()
+
+  isValidated(City.value, "validate3")
+  return (City.value)
 
 }
 const getCitying = getcity()
@@ -190,30 +171,41 @@ const getCitying = getcity()
 const Email = document.getElementById("email");
 Email.addEventListener('change', getemail);
 function getemail() {
+  console.log(Email.value)
   return (Email.value)
+
 }
 const getEmailing = getemail()
+
 
 
 //formulaire//
 
 //création de l'objet contact//
-const contact = {
-  firstName: `${getNaming}`,
-  lastName: `${getlastNaming}`,
-  adress: `${getadressing}`,
-  city: `${getCitying}`,
+
+
+var contact = {
+  firstName: `sdsds`,
+  lastName: `sdsd`,
+  address: `dssds`,
+  city: `dsdsds`,
   email: `${getEmailing}`,
 }
+//recupération des object dans le localstorage pour l'appel POST//
+var products = Object.keys(localStorage)
 
 
 //appel à l'api//
-const promise01 = fetch("http://localhost:3000/api/cameras/order", {
-  method: "POST",
-  body: JSON.stringify(contact, products),
-  headers: {
-    "Content-Type": "application/json",
-    'Accept': 'application/json',
-
-  }
-})
+function sendForm() {
+  fetch("http://localhost:3000/api/cameras/order", {
+    method: "POST",
+    body: JSON.stringify({ contact, products }),
+    headers: {
+      "Content-Type": "application/json",
+    }
+  })
+    .then(Resultat => Resultat.json()
+      .then(data => {
+        console.log(data)
+      }))
+}
