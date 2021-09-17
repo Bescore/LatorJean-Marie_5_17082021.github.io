@@ -110,30 +110,30 @@ function allStorage() {
 //regex de validation//
 function isValidated() {
   if (/^([A-Za-z])+$/.test(x)) {
-    let valide = '<p class="text-success fs-5">Valide !</p>'
+    let valide = '<p class="text-success fs-6">Valide !</p>'
     document.getElementById("validate").innerHTML = valide
   } else {
-    let Nonvalide = '<p class="text-danger fs-5">Non valide ! veuillez remplir</p>'
+    let Nonvalide = '<p class="text-danger fs-6">Non valide ! veuillez remplir</p>'
     document.getElementById("validate").innerHTML = Nonvalide
   }
 }
 //regex de validation 1//
 function isValidated1() {
   if (/^([A-Za-z])+$/.test(x)) {
-    let valide = '<p class="text-success fs-5">Valide !</p>'
+    let valide = '<p class="text-success fs-6">Valide !</p>'
     document.getElementById("validate1").innerHTML = valide
   } else {
-    let Nonvalide = '<p class="text-danger fs-5">Non valide ! veuillez remplir</p>'
+    let Nonvalide = '<p class="text-danger fs-6">Non valide ! veuillez remplir</p>'
     document.getElementById("validate1").innerHTML = Nonvalide
   }
 }
 //regex de validation 2//
 function isValidated2() {
   if (/^([A-Za-z])+$/.test(x)) {
-    let valide = '<p class="text-success fs-5">Valide !</p>'
+    let valide = '<p class="text-success fs-6">Valide !</p>'
     document.getElementById("validate2").innerHTML = valide
   } else {
-    let Nonvalide = '<p class="text-danger fs-5">Non valide ! veuillez remplir</p>'
+    let Nonvalide = '<p class="text-danger fs-6">Non valide ! veuillez remplir</p>'
     document.getElementById("validate2").innerHTML = Nonvalide
   }
 }
@@ -141,10 +141,10 @@ function isValidated2() {
 //regex de validation 3//
 function isValidated3() {
   if (/^([A-Za-z])+$/.test(x)) {
-    let valide = '<p class="text-success fs-5">Valide !</p>'
+    let valide = '<p class="text-success fs-6">Valide !</p>'
     document.getElementById("validate3").innerHTML = valide
   } else {
-    let Nonvalide = '<p class="text-danger fs-5">Non valide ! veuillez remplir</p>'
+    let Nonvalide = '<p class="text-danger fs-6">Non valide ! veuillez remplir</p>'
     document.getElementById("validate3").innerHTML = Nonvalide
   }
 }
