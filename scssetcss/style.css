@@ -11,6 +11,15 @@
   width: 18rem;
 }
 
+.card-body {
+  text-decoration: none;
+}
+
+.card-text {
+  text-align: center;
+  font-weight: bold;
+}
+
 .cardpic {
   max-height: 220px;
 }
@@ -30,6 +39,18 @@
 .card-img-top {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+}
+
+.forlenses {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.cart-card {
+  margin-left: auto;
+  margin-right: auto;
+  width: 18rem;
 }
 
 body {

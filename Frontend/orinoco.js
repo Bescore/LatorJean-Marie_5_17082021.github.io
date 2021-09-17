@@ -7,16 +7,16 @@ fetch("http://localhost:3000/api/cameras")
       for (let camera of cameras) {
         AffichageCamera += `<li   class="card cardtransfo" >
                 <img class="card-img-top" src="${camera.imageUrl}" alt="Appareil photo">
-                <a href="produit.html?article=${camera._id}" style="text-decoration:none" class="stretched-link card-body">
+                <a href="produit.html?article=${camera._id}"  class="stretched-link card-body">
                   <p style="font-weight: bold" class="card-text">${"Modèle :" + " " + camera.name}</p>
                 </a>
               </li>`;
       }
       AffichageCamera += '</ul>';
       document.getElementById("mouv").innerHTML = AffichageCamera;
-      
+
     })
-    .catch (function(){console.log('ne peut fetch la page index car vous êtes sur la mauvaise page')}
+    .catch(function () { console.log('ne peut fetch la page index car vous êtes sur la mauvaise page') }
     ));
 
 
@@ -36,12 +36,12 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
   .then(resultat => resultat.json()
     .then(data2 => {
       let Displaylenses
-      let affichage2 = `<div class="card" style="margin-right:auto; margin-left :auto;width: 18rem;">
+      let affichage2 = `<div class="card cart-card">
       <img class="card-img-top" src="${data2.imageUrl}" alt="Appareil photo">
       <div style="display:flex;justify-content-center;flex-direction:column" class="card-body">
-        <p style="text-align:center;font-weight: bold;" class="card-text"><span>Modèle :</span>${" " + " " + data2.name}</p>
-        <p style="text-align:center;font-weight: bold" class="card-text"><span>Prix :</span>${" " + (data2.price / 100) + " " + "€"}</p>
-        <label style="text-align:center;margin-bottom:20px;font-weight: bold" for="lense-select">Lentilles</label>
+        <p  class="card-text"><span>Modèle :</span>${" " + " " + data2.name}</p>
+        <p  class="card-text"><span>Prix :</span>${" " + (data2.price / 100) + " " + "€"}</p>
+        <label class="forlenses"  for="lense-select">Lentilles</label>
         <select  class="form-group" id="lense-select"></select>
   
         
@@ -63,10 +63,10 @@ function isclicked() {
   localStorage.setItem(id, id);
   alert('vous avez choisi ce produit')
 }
- //DELETE ONE ITEM//
-  function deleletItem(){
-    localStorage.removeItem(id, id);
-    alert('vous avez enlevé ce produit du panier')
+//DELETE ONE ITEM//
+function deleletItem() {
+  localStorage.removeItem(id, id);
+  alert('vous avez enlevé ce produit du panier')
 };
 //DELETE ALL ITEM FIN//
 function deleteAllitem() {
@@ -77,9 +77,9 @@ function allStorage() {
   ///TOTAL VAR///
   var nombres = [];
 
-///TOTAL VAR///
+  ///TOTAL VAR///
   let values = [];
-  let AffichageCamera ="";
+  let AffichageCamera = "";
   for (let i = 0; i < localStorage.length; i++) {
     values.push(localStorage.getItem(localStorage.key(i)));
 
@@ -93,14 +93,127 @@ function allStorage() {
           </a>
         </div>`;
           document.getElementById("mouv3").innerHTML = AffichageCamera;
-        
+
           //COUT TOTAL//
           nombres.push(cameras.price / 100)
           console.log(nombres)
           for (var i = 0, somme = 0; i < nombres.length; somme += nombres[i++]);
           document.getElementById("total").innerHTML = somme + "€";
           //COUT TOTAL FIN//
+
         }));
   }
+}
+
+
+
+//regex de validation//
+function isValidated() {
+  if (/^([A-Za-z])+$/.test(x)) {
+    let valide = '<p class="text-success fs-5">Valide !</p>'
+    document.getElementById("validate").innerHTML = valide
+  } else {
+    let Nonvalide = '<p class="text-danger fs-5">Non valide ! veuillez remplir</p>'
+    document.getElementById("validate").innerHTML = Nonvalide
   }
-  
+}
+//regex de validation 1//
+function isValidated1() {
+  if (/^([A-Za-z])+$/.test(x)) {
+    let valide = '<p class="text-success fs-5">Valide !</p>'
+    document.getElementById("validate1").innerHTML = valide
+  } else {
+    let Nonvalide = '<p class="text-danger fs-5">Non valide ! veuillez remplir</p>'
+    document.getElementById("validate1").innerHTML = Nonvalide
+  }
+}
+//regex de validation 2//
+function isValidated2() {
+  if (/^([A-Za-z])+$/.test(x)) {
+    let valide = '<p class="text-success fs-5">Valide !</p>'
+    document.getElementById("validate2").innerHTML = valide
+  } else {
+    let Nonvalide = '<p class="text-danger fs-5">Non valide ! veuillez remplir</p>'
+    document.getElementById("validate2").innerHTML = Nonvalide
+  }
+}
+
+//regex de validation 3//
+function isValidated3() {
+  if (/^([A-Za-z])+$/.test(x)) {
+    let valide = '<p class="text-success fs-5">Valide !</p>'
+    document.getElementById("validate3").innerHTML = valide
+  } else {
+    let Nonvalide = '<p class="text-danger fs-5">Non valide ! veuillez remplir</p>'
+    document.getElementById("validate3").innerHTML = Nonvalide
+  }
+}
+//ecoute du formulaire//
+//PRENOM//
+const Prenom = document.getElementById("firstName");
+Prenom.addEventListener('change', getName);
+function getName() {
+  x = Prenom.value
+  isValidated()
+}
+const getNaming = getName()
+//NOM//
+const Nom = document.getElementById("lastName");
+Nom.addEventListener('change', getlastName);
+function getlastName() {
+  x = Nom.value
+  isValidated1()
+}
+const getlastNaming = getlastName()
+
+//ADRESS//
+const Adress = document.getElementById("adress");
+Adress.addEventListener('change', getadress);
+function getadress() {
+  x = Adress.value
+  isValidated2()
+
+}
+const getadressing = getadress()
+
+//VILLE//
+const City = document.getElementById("city");
+City.addEventListener('change', getcity);
+function getcity() {
+  x = City.value
+  isValidated3()
+
+}
+const getCitying = getcity()
+
+//EMAIL//
+const Email = document.getElementById("email");
+Email.addEventListener('change', getemail);
+function getemail() {
+  return (Email.value)
+}
+const getEmailing = getemail()
+
+
+//formulaire//
+
+//création de l'objet contact//
+const contact = {
+  firstName: `${getNaming}`,
+  lastName: `${getlastNaming}`,
+  adress: `${getadressing}`,
+  city: `${getCitying}`,
+  email: `${getEmailing}`,
+}
+
+
+//appel à l'api//
+const promise01 = fetch("http://localhost:3000/api/cameras/order", {
+  method: "POST",
+  body: JSON.stringify(contact, products),
+  headers: {
+    "Content-Type": "application/json",
+    'Accept': 'application/json',
+
+  }
+})
