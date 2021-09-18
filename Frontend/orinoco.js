@@ -121,6 +121,7 @@ function isValidated(x, id) {
   } else {
     let Nonvalide = '<p class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
     document.getElementById(id).innerHTML = Nonvalide
+    document.getElementById(x).value = ""
   }
 }
 
@@ -149,8 +150,9 @@ if (document.getElementById("mouv3")) {
   Prenom.addEventListener('change', getName);
   function getName() {
 
-    isValidated(Prenom.value, "validate");
+    isValidated(Prenom.value, "validate")
     contact["firstName"] = `${Prenom.value}`
+
   }
 }
 //NOM//
