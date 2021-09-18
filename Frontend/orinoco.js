@@ -1,4 +1,3 @@
-
 /* TEST récupération des informations de l'api et affichage de resultat en html*/
 fetch("http://localhost:3000/api/cameras")
   .then(Resultatcamera => Resultatcamera.json()
@@ -31,12 +30,12 @@ function getArticleId() {
 const id = getArticleId()
 
 //afficher l'article correspond a son id sur la page produit//
-
-fetch(`http://localhost:3000/api/cameras/${id}`)
-  .then(resultat => resultat.json()
-    .then(data2 => {
-      let Displaylenses
-      let affichage2 = `<div class="card cart-card">
+if (document.getElementById("mouv2")) {
+  fetch(`http://localhost:3000/api/cameras/${id}`)
+    .then(resultat => resultat.json()
+      .then(data2 => {
+        let Displaylenses
+        let affichage2 = `<div class="card cart-card">
       <img class="card-img-top" src="${data2.imageUrl}" alt="Appareil photo">
       <div style="display:flex;justify-content-center;flex-direction:column" class="card-body">
         <p  class="card-text"><span>Modèle :</span>${" " + " " + data2.name}</p>
@@ -49,13 +48,15 @@ fetch(`http://localhost:3000/api/cameras/${id}`)
         <button id=${data2._id}  type="submit" onclick="deleletItem(id)" class="btn btn-primary btn-sm touch ">Supprimer du panier</button>
       </div>
     </div>`;
-      //boucle pour les lentilles//
-      for (let lense of (data2.lenses)) {
-        Displaylenses += `<option value="${lense}">${lense}</option>`
-      };
-      document.getElementById("mouv2").innerHTML = affichage2;
-      document.getElementById("lense-select").innerHTML = Displaylenses;
-    }));
+        //boucle pour les lentilles//
+
+        for (let lense of (data2.lenses)) {
+          Displaylenses += `<option value="${lense}">${lense}</option>`
+        };
+        document.getElementById("mouv2").innerHTML = affichage2;
+        document.getElementById("lense-select").innerHTML = Displaylenses;
+      }))
+};
 
 
 //choisir produit//
@@ -87,35 +88,33 @@ function allStorage() {
     fetch(`http://localhost:3000/api/cameras/${values[i]}`)
       .then(Resultatcamera => Resultatcamera.json()
         .then(cameras => {
-          AffichageCamera += `<div   class="card cardmouv cardpic">
+          if (document.getElementById("mouv3")) {
+            AffichageCamera += `<div   class="card cardmouv cardpic">
           <img class="card-img-top" src="${cameras.imageUrl}" alt="Appareil photo">
           <a href="produit.html?article=${cameras._id}" style="text-decoration:none" class=" stretched-link card-body">
             <p class="card-text">${"Modèle :" + " " + cameras.name}</p>
           </a>
         </div>`;
-          document.getElementById("mouv3").innerHTML = AffichageCamera;
+            document.getElementById("mouv3").innerHTML = AffichageCamera;
 
-          //COUT TOTAL//
-          somme += cameras.price / 100;
-          Price.push(somme)
-          console.log(Price)
-          document.getElementById("total").innerHTML = somme + "€";
-          //COUT TOTAL FIN//
-
-
-          /*nombresTot.push(cameras.price / 100)
-          console.log(nombresTot)
-          for (var i = 0, somme = 0; i < nombresTot.length; somme += nombresTot[i++]);
-          document.getElementById("total").innerHTML = somme + "€";*/
+            //COUT TOTAL//
+            somme += cameras.price / 100;
+            Price.push(somme)
+            console.log(Price)
+            document.getElementById("total").innerHTML = somme + "€";
+            //stockage du coût total dans le session storage//
+            sessionStorage.setItem("prix",somme)
+            //COUT TOTAL FIN//
 
 
+          }
         }));
 
   }
 
 }
 //stockage du prix//
-var Price=[]
+var Price = []
 
 //regex de validation//
 function isValidated(x, id) {
@@ -130,52 +129,61 @@ function isValidated(x, id) {
 
 //ecoute du formulaire//
 //PRENOM//
+
 const Prenom = document.getElementById("firstName");
-Prenom.addEventListener('change', getName);
-function getName() {
+if (document.getElementById("mouv3")) {
+  Prenom.addEventListener('change', getName);
+  function getName() {
 
-  isValidated(Prenom.value, "validate");
-  contact["firstName"]=`${Prenom.value}`
+    isValidated(Prenom.value, "validate");
+    contact["firstName"] = `${Prenom.value}`
+  }
 }
-
 //NOM//
 const Nom = document.getElementById("lastName");
-Nom.addEventListener('change', getlastName);
-function getlastName() {
+if (document.getElementById("mouv3")) {
+  Nom.addEventListener('change', getlastName);
+  function getlastName() {
 
-  isValidated(Nom.value, "validate1");
-  contact["lastName"]=`${Nom.value}`
+    isValidated(Nom.value, "validate1");
+    contact["lastName"] = `${Nom.value}`
+  }
 }
-
 
 //ADRESS//
 const Adress = document.getElementById("adress");
-Adress.addEventListener('change', getadress);
-function getadress() {
+if (document.getElementById("mouv3")) {
+  Adress.addEventListener('change', getadress);
+  function getadress() {
 
-  isValidated(Adress.value, "validate2");
-  contact["address"]=`${Adress.value}`
+    isValidated(Adress.value, "validate2");
+    contact["address"] = `${Adress.value}`
+  }
 }
 
 
 //VILLE//
 const City = document.getElementById("city");
-City.addEventListener('change', getcity);
-function getcity() {
+if (document.getElementById("mouv3")) {
+  City.addEventListener('change', getcity);
+  function getcity() {
 
-  isValidated(City.value, "validate3")
-  contact["city"]=`${City.value}`
+    isValidated(City.value, "validate3")
+    contact["city"] = `${City.value}`
 
+  }
 }
 
 
 //EMAIL//
 const Email = document.getElementById("email");
-Email.addEventListener('change', getemail);
-function getemail() {
-  console.log(Email.value)
-  contact["email"]=`${Email.value}`
+if (document.getElementById("mouv3")) {
+  Email.addEventListener('change', getemail);
+  function getemail() {
+    console.log(Email.value)
+    contact["email"] = `${Email.value}`
 
+  }
 }
 
 
@@ -191,18 +199,16 @@ var contact = {
   lastName: "",
   address: "",
   city: "",
-  email:""
+  email: ""
 }
 //recupération des object dans le localstorage pour l'appel POST//
 var products = Object.keys(localStorage)
 
-//stockage de l'id de commande//
-var CommandId =[]
 
 //appel post à l'api//
 function Forms() {
   event.preventDefault();
-   fetch("http://localhost:3000/api/cameras/order", {
+  fetch("http://localhost:3000/api/cameras/order", {
     method: "POST",
     body: JSON.stringify({ contact, products }),
     headers: {
@@ -210,12 +216,34 @@ function Forms() {
     }
   })
     .then(Resultat => Resultat.json()
-      .then(data => {
-        console.log(data)
-        CommandId.push(`${data.orderId}`)
-        console.log(CommandId)
-        if (data.orderId) {
-          window.location.href="commande.html"
+      .then(POST => {
+        console.log(POST)
+          sessionStorage.setItem(`Idorder`, `${POST.orderId}`)
+        if (POST.orderId) {
+          window.location.href = "commande.html"
         }
       }));
+      
+      
 }
+
+
+
+//afficher l'id de commande sur la page commande//
+var Iddecommande = sessionStorage.getItem("Idorder")
+function Displayorder() {
+  if (Iddecommande && document.getElementById("mouv4")){
+    document.getElementById("mouv4").innerHTML ="Commande:"+" "+ Iddecommande;
+  } 
+}
+Displayorder();
+
+//afficher le prix total sur la page commande//
+
+var Prixdecommande = sessionStorage.getItem("prix")
+function Displayprice() {
+  if (Prixdecommande && document.getElementById("mouv4")) {
+    document.getElementById("totalC").innerText ="Merci de nous avoir choisi ! le coût total de votre commande est de :" + " "+Prixdecommande+ " "+"€"
+  }
+}
+Displayprice();
