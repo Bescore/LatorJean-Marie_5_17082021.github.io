@@ -72,13 +72,13 @@ function deleletItem() {
 function deleteAllitem() {
   localStorage.clear();
 };
+//reloadPage//
+function reloadPage() {
+  window.location.reload();
+}
 //recuperer le localstorage en tableau sur la page panier//
 function allStorage() {
-  ///TOTAL VAR///
-  var nombresTot = [];
-
-  ///TOTAL VAR///
-  let values = [];
+  var values = [];
   var AffichageCamera = "";
   var somme = 0;
   for (let i = 0; i < localStorage.length; i++) {
@@ -97,6 +97,8 @@ function allStorage() {
 
           //COUT TOTAL//
           somme += cameras.price / 100;
+          Price.push(somme)
+          console.log(Price)
           document.getElementById("total").innerHTML = somme + "€";
           //COUT TOTAL FIN//
 
@@ -112,8 +114,8 @@ function allStorage() {
   }
 
 }
-
-
+//stockage du prix//
+var Price=[]
 
 //regex de validation//
 function isValidated(x, id) {
@@ -121,7 +123,7 @@ function isValidated(x, id) {
     let valide = '<p class="text-success fs-6">Valide !</p>'
     document.getElementById(id).innerHTML = valide
   } else {
-    let Nonvalide = '<p class="text-danger fs-6">Non valide ! veuillez remplir</p>'
+    let Nonvalide = '<p class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
     document.getElementById(id).innerHTML = Nonvalide
   }
 }
@@ -194,10 +196,13 @@ var contact = {
 //recupération des object dans le localstorage pour l'appel POST//
 var products = Object.keys(localStorage)
 
+//stockage de l'id de commande//
+var CommandId =[]
 
-//appel à l'api//
-function sendForm() {
-  fetch("http://localhost:3000/api/cameras/order", {
+//appel post à l'api//
+function s() {
+  event.preventDefault();
+   fetch("http://localhost:3000/api/cameras/order", {
     method: "POST",
     body: JSON.stringify({ contact, products }),
     headers: {
@@ -207,5 +212,10 @@ function sendForm() {
     .then(Resultat => Resultat.json()
       .then(data => {
         console.log(data)
-      }))
+        CommandId.push(`${data.orderId}`)
+        console.log(CommandId)
+        if (data.orderId) {
+          window.location.href="commande.html"
+        }
+      }));
 }
