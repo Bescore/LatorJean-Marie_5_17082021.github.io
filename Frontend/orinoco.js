@@ -115,7 +115,7 @@ var Price = []
 
 //regex de validation//
 function isValidated(x, id) {
-  if (/^([A-Za-z])+$/.test(x)) {
+  if (/^[a-zA-z\s]+$/.test(x)) {
     let valide = '<p class="text-success fs-6">Valide !</p>'
     document.getElementById(id).innerHTML = valide
   } else {
@@ -123,6 +123,23 @@ function isValidated(x, id) {
     document.getElementById(id).innerHTML = Nonvalide
   }
 }
+
+//regex de validation adress//
+function validAdress(x, id) {
+  if (/[0-9\\\/# ,a-zA-Z]+[ ,]+[0-9\\\/#, a-zA-Z]{1,}/.test(x)) {
+    let valide = '<p class="text-success fs-6">Valide !</p>'
+    document.getElementById(id).innerHTML = valide
+  } else {
+    let Nonvalide = '<p class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
+    document.getElementById(id).innerHTML = Nonvalide
+    document.getElementById("adress").value = ""
+  }
+}
+
+
+
+
+
 
 //ecoute du formulaire//
 //PRENOM//
@@ -153,7 +170,7 @@ if (document.getElementById("mouv3")) {
   Adress.addEventListener('change', getadress);
   function getadress() {
 
-    isValidated(Adress.value, "validate2");
+    validAdress(Adress.value, "validate2");
     contact["address"] = `${Adress.value}`
   }
 }
