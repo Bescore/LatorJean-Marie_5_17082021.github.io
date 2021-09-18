@@ -200,7 +200,7 @@ var products = Object.keys(localStorage)
 var CommandId =[]
 
 //appel post à l'api//
-function s() {
+function sendforms() {
   event.preventDefault();
    fetch("http://localhost:3000/api/cameras/order", {
     method: "POST",
