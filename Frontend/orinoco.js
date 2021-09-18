@@ -1,24 +1,25 @@
 /* TEST récupération des informations de l'api et affichage de resultat en html*/
-fetch("http://localhost:3000/api/cameras")
-  .then(Resultatcamera => Resultatcamera.json()
-    .then(cameras => {
-      let AffichageCamera = `<ul style="display:flex; flex-wrap:wrap; margin:auto; align-items : center;justify-content:center;">`;
-      for (let camera of cameras) {
-        AffichageCamera += `<li   class="card cardtransfo" >
+if (document.getElementById("mouv")) {
+  fetch("http://localhost:3000/api/cameras")
+    .then(Resultatcamera => Resultatcamera.json()
+      .then(cameras => {
+        let AffichageCamera = `<ul style="display:flex; flex-wrap:wrap; margin:auto; align-items : center;justify-content:center;">`;
+        for (let camera of cameras) {
+          AffichageCamera += `<li   class="card cardtransfo" >
                 <img class="card-img-top" src="${camera.imageUrl}" alt="Appareil photo">
                 <a href="produit.html?article=${camera._id}"  class="stretched-link card-body">
                   <p class="card-text">${"Modèle :" + " " + camera.name}</p>
                 </a>
               </li>`;
-      }
-      AffichageCamera += '</ul>';
-      document.getElementById("mouv").innerHTML = AffichageCamera;
+        }
+        AffichageCamera += '</ul>';
+        document.getElementById("mouv").innerHTML = AffichageCamera;
 
-    })
-    .catch(function () { console.log('ne peut fetch la page index car vous êtes sur la mauvaise page') }
-    ));
+      })
+      .catch(function () { console.log('ne peut fetch la page index car vous êtes sur la mauvaise page') }
+      ));
 
-
+}
 
 
 
