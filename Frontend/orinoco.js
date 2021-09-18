@@ -42,8 +42,6 @@ if (document.getElementById("mouv2")) {
         <p  class="card-text"><span>Prix :</span>${" " + (data2.price / 100) + " " + "€"}</p>
         <label class="forlenses"  for="lense-select">Lentilles</label>
         <select  class="form-group" id="lense-select"></select>
-  
-        
         <button id=${data2.id}  type="button" onClick="isclicked(id)"   class="btn btn-primary btn-sm touch ">Selectionner</button>
         <button id=${data2._id}  type="submit" onclick="deleletItem(id)" class="btn btn-primary btn-sm touch ">Supprimer du panier</button>
       </div>
@@ -62,7 +60,7 @@ if (document.getElementById("mouv2")) {
 //choisir produit//
 function isclicked() {
   localStorage.setItem(id, id);
-  alert('vous avez choisi ce produit')
+  alert('vous avez choisi ce produit');
 }
 //DELETE ONE ITEM//
 function deleletItem() {
@@ -103,10 +101,8 @@ function allStorage() {
             console.log(Price)
             document.getElementById("total").innerHTML = somme + "€";
             //stockage du coût total dans le session storage//
-            sessionStorage.setItem("prix",somme)
+            sessionStorage.setItem("prix", somme);
             //COUT TOTAL FIN//
-
-
           }
         }));
 
@@ -185,14 +181,9 @@ if (document.getElementById("mouv3")) {
 
   }
 }
-
-
-
-
 //formulaire//
 
 //création de l'objet contact//
-
 
 var contact = {
   firstName: "",
@@ -218,13 +209,15 @@ function Forms() {
     .then(Resultat => Resultat.json()
       .then(POST => {
         console.log(POST)
-          sessionStorage.setItem(`Idorder`, `${POST.orderId}`)
+        sessionStorage.setItem(`Idorder`, `${POST.orderId}`)
         if (POST.orderId) {
           window.location.href = "commande.html"
         }
-      }));
-      
-      
+      }
+      ));
+
+
+
 }
 
 
@@ -232,9 +225,9 @@ function Forms() {
 //afficher l'id de commande sur la page commande//
 var Iddecommande = sessionStorage.getItem("Idorder")
 function Displayorder() {
-  if (Iddecommande && document.getElementById("mouv4")){
-    document.getElementById("mouv4").innerHTML ="Commande:"+" "+ Iddecommande;
-  } 
+  if (Iddecommande && document.getElementById("mouv4")) {
+    document.getElementById("mouv4").innerHTML = "Commande:" + " " + Iddecommande;
+  }
 }
 Displayorder();
 
@@ -243,7 +236,7 @@ Displayorder();
 var Prixdecommande = sessionStorage.getItem("prix")
 function Displayprice() {
   if (Prixdecommande && document.getElementById("mouv4")) {
-    document.getElementById("totalC").innerText ="Merci de nous avoir choisi ! le coût total de votre commande est de :" + " "+Prixdecommande+ " "+"€"
+    document.getElementById("totalC").innerText = "Merci de nous avoir choisi ! le coût total de votre commande est de :" + " " + Prixdecommande + " " + "€"
   }
 }
 Displayprice();
