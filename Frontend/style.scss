@@ -1,6 +1,6 @@
 //FONT//
-.bodyfont{
-    font-family: 'Courgette', cursive;
+.bodyfont {
+  font-family: "Courgette", cursive;
 }
 //couleurs//
 $gradient-top-left: linear-gradient(225deg, #463f3aff, #8a817cff, #bcb8b1ff, #f4f3eeff, #e0afa0ff);
@@ -10,42 +10,40 @@ $gradient-radial: radial-gradient(#463f3aff, #8a817cff, #bcb8b1ff, #f4f3eeff, #e
   margin: 50px;
   border: solid 1px black;
   border-radius: 20px;
-  background:$gradient-radial;
+  background: $gradient-radial;
   min-width: 200px;
-  width: 18rem; 
+  width: 18rem;
 }
-.card-body{
+.card-body {
   text-decoration: none;
 }
-.card-text{
+.card-text {
   text-align: center;
   font-weight: bold;
 }
-.cardpic{
+.cardpic {
   max-height: 220px;
-
 }
 .back {
-  background:$gradient-top-left;
+  background: $gradient-top-left;
 }
 .cardtransfo:hover {
   transform: scale(1.2);
 }
-.cardmouv{
- width: 15rem;
+.cardmouv {
+  width: 15rem;
 }
 
 .card-img-top {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  
 }
-.forlenses{
+.forlenses {
   text-align: center;
   margin-bottom: 20px;
   font-weight: bold;
 }
-.cart-card{
+.cart-card {
   margin-left: auto;
   margin-right: auto;
   width: 18rem;
@@ -56,14 +54,14 @@ body {
   background-size: cover;
 }
 
-.box-flex{
+.box-flex {
   display: flex;
   flex-wrap: wrap;
 }
-.touch{
+.touch {
   margin-top: 10px;
 }
-.borderthis{
+.borderthis {
   border-radius: 20px;
-  background-color: $gradient-top-left ;
+  background-color: $gradient-top-left;
 }

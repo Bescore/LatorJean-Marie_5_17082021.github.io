@@ -5,25 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
 
     <!--font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Courgette&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet" />
     <!--font awsome-->
-    <script
-      src="https://kit.fontawesome.com/8d6209c187.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/8d6209c187.js" crossorigin="anonymous"></script>
 
     <!--CSS-->
     <link href="../scssetcss/style.css" rel="stylesheet" />
@@ -34,37 +23,19 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-sm navbar-light back">
       <div class="container px-4 px-lg-5">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse py-3" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li class="nav-item">
-              <a class="nav-link active h2" aria-current="page" href="#!"
-                >Orinoco</a
-              >
+              <a class="nav-link active h2" aria-current="page" href="#!">Orinoco</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active h2 mx-5" href="Index.html">Accueil</a>
             </li>
             <li class="nav-item dropdown">
-              <a
-                class="nav-link active dropdown-toggle h2"
-                id="navbarDropdown"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                >Parcourir</a
-              >
+              <a class="nav-link active dropdown-toggle h2" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Parcourir</a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="#!">Panier</a></li>
                 <li>
@@ -75,9 +46,7 @@
             </li>
           </ul>
           <form class="d-flex">
-            <button class="btn btn-secondary btn-lg" type="submit">
-              <i class="fas fa-shopping-cart mx-2"></i>Panier
-            </button>
+            <button class="btn btn-secondary btn-lg" type="submit"><i class="fas fa-shopping-cart mx-2"></i>Panier</button>
           </form>
         </div>
       </div>
@@ -86,84 +55,45 @@
     <header class="bg-dark py-5">
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-          <h1 class="display-5 fw-bolder">
-            Nos produits sont adaptés à votre budget !
-          </h1>
+          <h1 class="display-5 fw-bolder">Nos produits sont adaptés à votre budget !</h1>
         </div>
       </div>
     </header>
     <main class="container-fluid">
       <div class="row">
-        <div class="box-flex col" id="mouv3"></div>
+        <div class="box-flex col" id="mouv3"><div class="col-12 d-flex align-items-center justify-content-center h1 text-warning">Votre panier est vide</div></div>
         <div class="col text-center fs-1 fw-bolder">
           <!-- Default form login -->
           <form class="text-center p-5" action="#!">
             <p class="h4 mb-4 fs-1 text-warning">À vous de jouer !</p>
 
             <!-- Prénom -->
-            <input
-              type="text"
-              id="firstName"
-              class="form-control mb-4"
-              placeholder="Prénom"
-            />
+            <input type="text" id="firstName" class="form-control mb-4" placeholder="Prénom" />
             <p id="validate"></p>
 
             <!-- Nom -->
-            <input
-              type="text"
-              id="lastName"
-              class="form-control mb-4"
-              placeholder="Nom"
-            />
+            <input type="text" id="lastName" class="form-control mb-4" placeholder="Nom" />
             <p id="validate1"></p>
 
             <!--adresse-->
-            <input
-              type="text"
-              id="adress"
-              class="form-control mb-4"
-              placeholder="Adresse"
-            />
+            <input type="text" id="adress" class="form-control mb-4" placeholder="Adresse" />
             <p id="validate2"></p>
 
             <!--Ville-->
-            <input
-              type="text"
-              id="city"
-              class="form-control mb-4"
-              placeholder="Ville"
-            />
+            <input type="text" id="city" class="form-control mb-4" placeholder="Ville" />
             <p id="validate3"></p>
 
             <!--email-->
-            <input
-              type="email"
-              id="email"
-              class="form-control mb-4"
-              placeholder="Email"
-            />
+            <input type="email" id="email" class="form-control mb-4" placeholder="Email" />
 
             <!-- commander -->
-            <button
-              class="btn btn-info btn-block my-4"
-              onclick="Forms()"
-              type="submit"
-            >
-              Commander
-            </button>
+            <button class="btn btn-info btn-block my-4" onclick="Forms()" type="submit">Commander</button>
           </form>
           <!-- Default form login -->
           <div class="text-warning">Coût total : <span id="total"> </span></div>
         </div>
         <div class="row">
-          <button
-            class="btn btn-info btn-block my-4 col-6"
-            onclick="deleteAllitem(),reloadPage()"
-            type="submit"
-          >
-            Vider le panier
-          </button>
+          <button class="btn btn-info btn-block my-4 col-6" onclick="deleteAllitem(),reloadPage()" type="submit">Vider le panier</button>
         </div>
       </div>
     </main>
@@ -175,11 +105,7 @@
       </div>
     </footer>
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="orinoco.js"></script>
   </body>
 </html>
