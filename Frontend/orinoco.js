@@ -71,6 +71,8 @@ function deleletItem() {
 //DELETE ALL ITEM FIN//
 function deleteAllitem() {
   localStorage.clear();
+  sessionStorage.removeItem("Idorder")
+  sessionStorage.removeItem("prix")
 };
 //reloadPage//
 function reloadPage() {
@@ -100,7 +102,7 @@ function allStorage() {
             somme += cameras.price / 100;
             Price.push(somme)
             console.log(Price)
-            document.getElementById("total").innerHTML = somme + "€";
+            document.getElementById("total").innerHTML = "Coût total :"+" "+ somme + "€";
             //stockage du coût total dans le session storage//
             sessionStorage.setItem("prix", somme);
             //COUT TOTAL FIN//
@@ -119,9 +121,8 @@ function isValidated(x, id) {
     let valide = '<p class="text-success fs-6">Valide !</p>'
     document.getElementById(id).innerHTML = valide
   } else {
-    let Nonvalide = '<p class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
+    let Nonvalide = '<p id="nonvalide" class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
     document.getElementById(id).innerHTML = Nonvalide
-    document.getElementById(x).value = ""
   }
 }
 
@@ -131,7 +132,7 @@ function validAdress(x, id) {
     let valide = '<p class="text-success fs-6">Valide !</p>'
     document.getElementById(id).innerHTML = valide
   } else {
-    let Nonvalide = '<p class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
+    let Nonvalide = '<p id="nonvalide" class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
     document.getElementById(id).innerHTML = Nonvalide
     document.getElementById("adress").value = ""
   }
@@ -152,7 +153,7 @@ if (document.getElementById("mouv3")) {
 
     isValidated(Prenom.value, "validate")
     contact["firstName"] = `${Prenom.value}`
-
+    
   }
 }
 //NOM//
@@ -212,6 +213,9 @@ var contact = {
   city: "",
   email: ""
 }
+//constant qui verifie si l'object contact est vide ou pas //
+const isEmpty = Object.values(contact).every(x => x === null || x === '');
+
 //recupération des object dans le localstorage pour l'appel POST//
 var products = Object.keys(localStorage)
 
@@ -230,10 +234,16 @@ function Forms() {
       .then(POST => {
         console.log(POST)
         sessionStorage.setItem(`Idorder`, `${POST.orderId}`)
-        if (POST.orderId) {
+        if (document.getElementById("nonvalide")) {
+          alert('Remplissez correctement le formulaire')
+        } else if (POST.orderId && (sessionStorage.getItem("prix")) && isEmpty !== false) {
           window.location.href = "commande.html"
+        
+        } else {
+          alert('Veuillez selectionner un produit et/ou remplir le formulaire')
         }
       }
+      
       ));
 
 
