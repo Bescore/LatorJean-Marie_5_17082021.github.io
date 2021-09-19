@@ -71,7 +71,7 @@ function deleletItem() {
 //DELETE LAST ITEM PAGE PANIER//
 function deleteLastitem() {
   localStorage.removeItem(localStorage.key(localStorage.length - 1))
-  if (localStorage.length===0) {
+  if (localStorage.length === 0) {
     sessionStorage.removeItem("prix")
   }
 }
@@ -110,10 +110,10 @@ function allStorage() {
             somme += cameras.price / 100;
             Price.push(somme)
             console.log(Price)
-            document.getElementById("total").innerHTML = "Coût total :"+" "+ somme + "€";
+            document.getElementById("total").innerHTML = "Coût total :" + " " + somme + "€";
             //stockage du coût total dans le session storage//
             sessionStorage.setItem("prix", somme);
-            
+
           }
         }));
 
@@ -157,7 +157,7 @@ if (document.getElementById("mouv3")) {
 
     isValidated(Prenom.value, "validate")
     contact["firstName"] = `${Prenom.value}`
-    
+
   }
 }
 //NOM//
@@ -242,12 +242,12 @@ function Forms() {
           alert('Le formulaire est invalide')
         } else if (POST.orderId && (sessionStorage.getItem("prix")) && isEmpty !== false) {
           window.location.href = "commande.html"
-        
+
         } else {
           alert('Veuillez selectionner un produit et/ou remplir le formulaire')
         }
       }
-      
+
       ));
 
 
