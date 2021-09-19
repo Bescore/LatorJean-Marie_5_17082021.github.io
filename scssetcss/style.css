@@ -3,7 +3,7 @@
 }
 
 .card {
-  margin: 50px;
+  margin: 40px;
   border: solid 1px black;
   border-radius: 20px;
   background: radial-gradient(#463f3aff, #8a817cff, #bcb8b1ff, #f4f3eeff, #e0afa0ff);
@@ -21,7 +21,7 @@
 }
 
 .cardpic {
-  max-height: 220px;
+  max-height: 250px;
 }
 
 .back {
@@ -29,7 +29,7 @@
 }
 
 .cardtransfo:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .cardmouv {

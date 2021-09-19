@@ -7,7 +7,7 @@ $gradient-top-left: linear-gradient(225deg, #463f3aff, #8a817cff, #bcb8b1ff, #f4
 $gradient-radial: radial-gradient(#463f3aff, #8a817cff, #bcb8b1ff, #f4f3eeff, #e0afa0ff);
 //Page index//
 .card {
-  margin: 50px;
+  margin: 40px;
   border: solid 1px black;
   border-radius: 20px;
   background: $gradient-radial;
@@ -22,13 +22,13 @@ $gradient-radial: radial-gradient(#463f3aff, #8a817cff, #bcb8b1ff, #f4f3eeff, #e
   font-weight: bold;
 }
 .cardpic {
-  max-height: 220px;
+  max-height: 250px;
 }
 .back {
   background: $gradient-top-left;
 }
 .cardtransfo:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 .cardmouv {
   width: 15rem;

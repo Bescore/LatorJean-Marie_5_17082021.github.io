@@ -1,4 +1,4 @@
-/* TEST récupération des informations de l'api et affichage de resultat en html*/
+//RÉCUPÉRATION DES INFORMATIONS DE L'API ET AFFICHAGE DE RESULTAT EN HTML//
 if (document.getElementById("mouv")) {
   fetch("http://localhost:3000/api/cameras")
     .then(Resultatcamera => Resultatcamera.json()
@@ -58,17 +58,24 @@ if (document.getElementById("mouv2")) {
 };
 
 
-//choisir produit//
+//CHOISIR PRODUIT PAGE PRODUIT//
 function isclicked() {
   localStorage.setItem(id, id);
   alert('vous avez choisi ce produit');
 }
-//DELETE ONE ITEM//
+//DELETE ONE ITEM PAGE PRODUIT//
 function deleletItem() {
   localStorage.removeItem(id, id);
   alert('vous avez enlevé ce produit du panier')
 };
-//DELETE ALL ITEM FIN//
+//DELETE LAST ITEM PAGE PANIER//
+function deleteLastitem() {
+  localStorage.removeItem(localStorage.key(localStorage.length - 1))
+  if (localStorage.length===0) {
+    sessionStorage.removeItem("prix")
+  }
+}
+//DELETE ALL ITEM PAGE PANIER//
 function deleteAllitem() {
   localStorage.clear();
   sessionStorage.removeItem("Idorder")
@@ -78,7 +85,7 @@ function deleteAllitem() {
 function reloadPage() {
   window.location.reload();
 }
-//recuperer le localstorage en tableau sur la page panier//
+//RECUPERER LE LOCALSTORAGE EN TABLEAU SUR LA PAGE PANIER//
 function allStorage() {
   var values = [];
   var AffichageCamera = "";
@@ -93,7 +100,8 @@ function allStorage() {
             AffichageCamera += `<div   class="card cardmouv cardpic">
           <img class="card-img-top" src="${cameras.imageUrl}" alt="Appareil photo">
           <a href="produit.html?article=${cameras._id}" style="text-decoration:none" class=" stretched-link card-body">
-            <p class="card-text">${"Modèle :" + " " + cameras.name}</p>
+            <p class="card-text my-1">${"Modèle :" + " " + cameras.name}</p>
+            <p  class="card-text"><span>Prix :</span>${" " + (cameras.price / 100) + " " + "€"}</p>
           </a>
         </div>`;
             document.getElementById("mouv3").innerHTML = AffichageCamera;
@@ -105,17 +113,17 @@ function allStorage() {
             document.getElementById("total").innerHTML = "Coût total :"+" "+ somme + "€";
             //stockage du coût total dans le session storage//
             sessionStorage.setItem("prix", somme);
-            //COUT TOTAL FIN//
+            
           }
         }));
 
   }
 
 }
-//stockage du prix//
+//STOCKAGE DU PRIX//
 var Price = []
 
-//regex de validation//
+//REGEX DE VALIDATION//
 function isValidated(x, id) {
   if (/^[a-zA-z\s]+$/.test(x)) {
     let valide = '<p class="text-success fs-6">Valide !</p>'
@@ -126,7 +134,7 @@ function isValidated(x, id) {
   }
 }
 
-//regex de validation adress//
+//REGEX DE VALIDATION ADRESS//
 function validAdress(x, id) {
   if (/[0-9\\\/# ,a-zA-Z]+[ ,]+[0-9\\\/#, a-zA-Z]{1,}/.test(x)) {
     let valide = '<p class="text-success fs-6">Valide !</p>'
@@ -138,12 +146,8 @@ function validAdress(x, id) {
   }
 }
 
+//ECOUTE DU FORMULAIRE//
 
-
-
-
-
-//ecoute du formulaire//
 //PRENOM//
 
 const Prenom = document.getElementById("firstName");
@@ -204,7 +208,7 @@ if (document.getElementById("mouv3")) {
 }
 //formulaire//
 
-//création de l'objet contact//
+//CREATION DE L'OBJET CONTACT//
 
 var contact = {
   firstName: "",
@@ -213,14 +217,14 @@ var contact = {
   city: "",
   email: ""
 }
-//constant qui verifie si l'object contact est vide ou pas //
+//CONSTANT QUI VERIFIE SI L'OBJECT CONTACT EST VIDE OU PAS //
 const isEmpty = Object.values(contact).every(x => x === null || x === '');
 
-//recupération des object dans le localstorage pour l'appel POST//
+//RECUPÉRATION DES OBJECT DANS LE LOCALSTORAGE POUR L'APPEL POST//
 var products = Object.keys(localStorage)
 
 
-//appel post à l'api//
+//APPEL POST À L'API//
 function Forms() {
   event.preventDefault();
   fetch("http://localhost:3000/api/cameras/order", {
@@ -235,7 +239,7 @@ function Forms() {
         console.log(POST)
         sessionStorage.setItem(`Idorder`, `${POST.orderId}`)
         if (document.getElementById("nonvalide")) {
-          alert('Remplissez correctement le formulaire')
+          alert('Le formulaire est invalide')
         } else if (POST.orderId && (sessionStorage.getItem("prix")) && isEmpty !== false) {
           window.location.href = "commande.html"
         
@@ -252,7 +256,7 @@ function Forms() {
 
 
 
-//afficher l'id de commande sur la page commande//
+//AFFICHER L'ID DE COMMANDE SUR LA PAGE COMMANDE//
 var Iddecommande = sessionStorage.getItem("Idorder")
 function Displayorder() {
   if (Iddecommande && document.getElementById("mouv4")) {
@@ -261,7 +265,7 @@ function Displayorder() {
 }
 Displayorder();
 
-//afficher le prix total sur la page commande//
+//AFFICHER LE PRIX TOTAL SUR LA PAGE COMMANDE//
 
 var Prixdecommande = sessionStorage.getItem("prix")
 function Displayprice() {

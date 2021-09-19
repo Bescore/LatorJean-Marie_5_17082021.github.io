@@ -61,8 +61,8 @@
     </header>
     <main class="container-fluid">
       <div class="row">
-        <div class="box-flex col" id="mouv3"><div class="col-12 d-flex align-items-center justify-content-center h1 text-warning">Votre panier est vide</div></div>
-        <div class="col text-center fs-1 fw-bolder">
+        <div class="box-flex col col-xs-12" id="mouv3"><div id="paniervide" class="col-12 d-flex align-items-center justify-content-center h1 text-warning">Votre panier est vide</div></div>
+        <div class="col col-xs-12 text-center fs-1 fw-bolder">
           <!-- Default form login -->
           <form class="text-center p-5" action="#!">
             <p class="h4 mb-4 fs-1 text-warning">À vous de jouer !</p>
@@ -92,9 +92,13 @@
           <!-- Default form login -->
           <div class="text-warning"><span id="total"></span></div>
         </div>
-        <div class="row">
-          <button class="btn btn-info btn-block my-4 col-6" onclick="deleteAllitem(),reloadPage()" type="submit">Vider le panier</button>
+        <div class="row-12 text-center-sm">
+          <button class="btn btn-info btn-block col-md-6 col-xs-12" onclick="deleteLastitem(),reloadPage()" type="submit">Supprimer le dernier article ajouté</button>
+          <button class="btn btn-info btn-block my-2  col-md-6 col-xs-12" onclick="deleteAllitem(),reloadPage()" type="submit">Vider le panier</button>
         </div>
+        
+          
+        
       </div>
     </main>
 
