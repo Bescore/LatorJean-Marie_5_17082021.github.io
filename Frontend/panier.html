@@ -26,13 +26,13 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse py-3" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+        <div class="collapse navbar-collapse py-4" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-2 ms-lg-4">
             <li class="nav-item">
               <a class="nav-link active h2" aria-current="page" href="#!">Orinocams</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active h2 mx-5" href="Index.html">Accueil</a>
+              <a class="nav-link active h2 mx-2" href="Index.html">Accueil</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link active dropdown-toggle h2" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Parcourir</a>
@@ -46,7 +46,9 @@
             </li>
           </ul>
           <form class="d-flex">
-            <button class="btn btn-secondary btn-lg" type="submit"><i class="fas fa-shopping-cart mx-2"></i>Panier</button>
+            <a class="btn btn-secondary" href="panier.html">
+              <p class="h2"><i class="fas fa-shopping-cart mx-2"></i>Panier</p>
+            </a>
           </form>
         </div>
       </div>
@@ -93,9 +95,9 @@
           <!-- Default form login -->
           <div class="text-warning"><span id="total"></span></div>
         </div>
-        <div class="row-12 text-center-sm">
-          <button class="btn btn-info btn-block col-md-6 col-xs-12" onclick="deleteLastitem(),reloadPage()" type="submit">Supprimer le dernier article ajouté</button>
-          <button class="btn btn-info btn-block my-2 col-md-6 col-xs-12" onclick="deleteAllitem(),reloadPage()" type="submit">Vider le panier</button>
+        <div class="row-12 text-xs-center">
+          <button class="btn btn-info btn-block col-md-6 " onclick="deleteLastitem(),reloadPage()" type="submit">Supprimer le dernier article ajouté</button>
+          <button class="btn btn-info btn-block my-2 col-md-6  " onclick="deleteAllitem(),reloadPage()" type="submit">Vider le panier</button>
         </div>
       </div>
     </main>

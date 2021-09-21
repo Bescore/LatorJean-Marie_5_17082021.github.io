@@ -5,7 +5,7 @@ if (document.getElementById("mouv")) {
       .then(cameras => {
         let AffichageCamera = `<ul style="display:flex; flex-wrap:wrap; margin:auto; align-items : center;justify-content:center;">`;
         for (let camera of cameras) {
-          AffichageCamera += `<li   class="card cardtransfo" >
+          AffichageCamera += `<li   class="card cardtransfo"  >
                 <img class="card-img-top" src="${camera.imageUrl}" alt="Appareil photo">
                 <a href="produit.html?article=${camera._id}"  class="stretched-link card-body">
                   <p class="card-text text-dark">${"Modèle :" + " " + camera.name}</p>
@@ -36,12 +36,12 @@ if (document.getElementById("mouv2")) {
     .then(resultat => resultat.json()
       .then(data2 => {
         let Displaylenses
-        let affichage2 = `<div class="card cart-card">
+        let affichage2 = `<div class="card cart-card" >
       <img class="card-img-top" src="${data2.imageUrl}" alt="Appareil photo">
       <div style="display:flex;justify-content-center;flex-direction:column" class="card-body">
         <p  class="card-text"><span>Modèle :</span>${" " + " " + data2.name}</p>
         <p  class="card-text"><span>Prix :</span>${" " + (data2.price / 100) + " " + "€"}</p>
-        <label class="forlenses"  for="lense-select">Lentilles</label>
+        <label class="forlenses card-text"  for="lense-select">Lentilles</label>
         <select  class="form-group" id="lense-select"></select>
         <button id=${data2.id}  type="button" onClick="isclicked(id)"   class="btn btn-primary btn-sm touch ">Selectionner</button>
         <button id=${data2._id}  type="submit" onclick="deleletItem(id)" class="btn btn-primary btn-sm touch ">Supprimer du panier</button>
@@ -123,7 +123,7 @@ function allStorage() {
           <a href="produit.html?article=${cameras._id}" style="text-decoration:none" class=" stretched-link card-body">
             <p class="card-text my-1 text-dark">${"Modèle :" + " " + cameras.name}</p>
             <p  class="card-text text-dark"><span>Prix :</span>${" " + (cameras.price / 100) + " " + "€"}</p>
-            <p class="quantity">(${(localStorage.getItem(cameras._id))})</p>
+            <p class="quantity" >(${(localStorage.getItem(cameras._id))})</p>
           </a>
         </div>`;
             document.getElementById("mouv3").innerHTML = AffichageCamera;

@@ -20,6 +20,7 @@ $gradient-radial: radial-gradient(#F2F3E2ff, #E7F1E6ff, #DDEEE9ff, #D2ECEDff, #C
 .card-text {
   text-align: center;
   font-weight: bold;
+  color: black;
 }
 .cardpic {
   max-height: 250px;
@@ -86,4 +87,11 @@ body {
   height: 30px;
   line-height:30px;
   padding:0px 15px;
+}
+@media (max-width: 767px) {
+
+  // Align text to center.
+  .text-xs-center {
+    text-align: center;
+  } 
 }
