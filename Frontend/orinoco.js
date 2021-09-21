@@ -115,7 +115,8 @@ function allStorage() {
             document.getElementById("mouv3").innerHTML = AffichageCamera;
 
             //COUT TOTAL//
-            somme += cameras.price / 100;
+            
+            somme += (localStorage.getItem(cameras._id)) * cameras.price / 100;
             Price.push(somme)
             console.log(Price)
             document.getElementById("total").innerHTML = "Coût total :" + " " + somme + "€";
