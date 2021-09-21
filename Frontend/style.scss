@@ -1,10 +1,10 @@
 //FONT//
 .bodyfont {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 //couleurs//
-$gradient-top-left: linear-gradient(0deg, #F2F3E2ff, #E7F1E6ff, #DDEEE9ff, #D2ECEDff, #C7EAF1ff, #BDE7F4ff, #B2E5F8ff);
-$gradient-radial: radial-gradient(#F2F3E2ff, #E7F1E6ff, #DDEEE9ff, #D2ECEDff, #C7EAF1ff, #BDE7F4ff, #B2E5F8ff);
+$gradient-top-left: linear-gradient(0deg, #f2f3e2ff, #e7f1e6ff, #ddeee9ff, #d2ecedff, #c7eaf1ff, #bde7f4ff, #b2e5f8ff);
+$gradient-radial: radial-gradient(#f2f3e2ff, #e7f1e6ff, #ddeee9ff, #d2ecedff, #c7eaf1ff, #bde7f4ff, #b2e5f8ff);
 //Page index//
 .card {
   margin: 40px;
@@ -66,11 +66,11 @@ body {
   border-radius: 20px;
   background-color: $gradient-top-left;
 }
-.quantity{
+.quantity {
   display: flex;
   justify-content: center;
   align-items: center;
-  color:#fff;
+  color: #fff;
   position: relative;
   left: 180px;
   bottom: 40px;
@@ -85,13 +85,12 @@ body {
 .alert {
   margin-bottom: 1px;
   height: 30px;
-  line-height:30px;
-  padding:0px 15px;
+  line-height: 30px;
+  padding: 0px 15px;
 }
 @media (max-width: 767px) {
-
   // Align text to center.
   .text-xs-center {
     text-align: center;
-  } 
+  }
 }

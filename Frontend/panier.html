@@ -57,7 +57,7 @@
     <header class="bg-dark py-5">
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-          <h1 class="display-5 fw-bolder">Nos produits sont adaptés à votre budget !</h1>
+          <h1 class="display-5 fw-bolder" tabindex="0">De fabrication française !</h1>
         </div>
       </div>
     </header>
@@ -67,7 +67,7 @@
         <div class="col col-xs-12 text-center fs-1 fw-bolder">
           <!-- Default form login -->
           <form class="text-center p-5" action="#!">
-            <p class="h4 mb-4 fs-1 text-warning">À vous de jouer !</p>
+            <p class="h4 mb-4 fs-1 text-warning" tabindex="0">À vous de jouer !</p>
 
             <!-- Prénom -->
             <input type="text" id="firstName" class="form-control mb-4" placeholder="Prénom" />
@@ -93,11 +93,11 @@
             <button class="btn btn-info btn-block my-4" onclick="Forms()" type="submit">Commander</button>
           </form>
           <!-- Default form login -->
-          <div class="text-warning"><span id="total"></span></div>
+          <div class="text-warning"><span id="total" tabindex="0"></span></div>
         </div>
         <div class="row-12 text-xs-center">
-          <button class="btn btn-info btn-block col-md-6 " onclick="deleteLastitem(),reloadPage()" type="submit">Supprimer le dernier article ajouté</button>
-          <button class="btn btn-info btn-block my-2 col-md-6  " onclick="deleteAllitem(),reloadPage()" type="submit">Vider le panier</button>
+          <button class="btn btn-info btn-block col-md-6" onclick="deleteLastitem(),reloadPage()" type="submit">Supprimer le dernier article ajouté</button>
+          <button class="btn btn-info btn-block my-2 col-md-6" onclick="deleteAllitem(),reloadPage()" type="submit">Vider le panier</button>
         </div>
       </div>
     </main>
@@ -105,7 +105,7 @@
     <!-- Footer-->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Mentions légales</p>
+        <p class="m-0 text-center text-white" tabindex="0">Mentions légales</p>
       </div>
     </footer>
     <!-- Option 1: Bootstrap Bundle with Popper -->

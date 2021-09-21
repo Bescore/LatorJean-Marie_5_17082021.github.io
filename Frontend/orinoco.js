@@ -47,19 +47,19 @@ if (document.getElementById("mouv2")) {
         <button id=${data2._id}  type="submit" onclick="deleletItem(id)" class="btn btn-primary btn-sm touch ">Supprimer du panier</button>
       </div>
     </div>`;
-        
+
         let quantity = `<div class="value text-center text-warning fs-4">Quantité: ${localStorage.getItem(id)}</div>`
-        let Notincart=`<div class="value text-center text-warning fs-4" >Ce produit n'est pas dans votre panier</div>`
-        
-    //boucle pour les lentilles//
+        let Notincart = `<div class="value text-center text-warning fs-4" >Ce produit n'est pas dans votre panier</div>`
+
+        //boucle pour les lentilles//
 
         for (let lense of (data2.lenses)) {
           Displaylenses += `<option value="${lense}">${lense}</option>`
         };
         document.getElementById("mouv2").innerHTML = affichage2;
         document.getElementById("lense-select").innerHTML = Displaylenses;
-        
-        if (localStorage.getItem(id) ==null) {
+
+        if (localStorage.getItem(id) == null) {
           document.getElementById("quantity").innerHTML = Notincart;
         } else {
           document.getElementById("quantity").innerHTML = quantity;
