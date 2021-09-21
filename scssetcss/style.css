@@ -71,4 +71,20 @@ body {
   border-radius: 20px;
   background-color: linear-gradient(0deg, #F2F3E2ff, #E7F1E6ff, #DDEEE9ff, #D2ECEDff, #C7EAF1ff, #BDE7F4ff, #B2E5F8ff);
 }
+
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  left: 180px;
+  bottom: 40px;
+  font-weight: bolder;
+  font-size: 16px;
+  height: 30px;
+  width: 30px;
+  background-color: #3991b4;
+  border-radius: 50%;
+}
 /*# sourceMappingURL=style.css.map */

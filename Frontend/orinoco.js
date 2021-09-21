@@ -110,24 +110,21 @@ function allStorage() {
           <a href="produit.html?article=${cameras._id}" style="text-decoration:none" class=" stretched-link card-body">
             <p class="card-text my-1 text-dark">${"Modèle :" + " " + cameras.name}</p>
             <p  class="card-text text-dark"><span>Prix :</span>${" " + (cameras.price / 100) + " " + "€"}</p>
+            <p class="quantity">(${(localStorage.getItem(cameras._id))})</p>
           </a>
         </div>`;
             document.getElementById("mouv3").innerHTML = AffichageCamera;
-
             //COUT TOTAL//
-            
             somme += (localStorage.getItem(cameras._id)) * cameras.price / 100;
             Price.push(somme)
             console.log(Price)
             document.getElementById("total").innerHTML = "Coût total :" + " " + somme + "€";
-            //stockage du coût total dans le session storage//
+            //STOCKAGE DU COÛT TOTAL DANS LE SESSION STORAGE//
             sessionStorage.setItem("prix", somme);
 
           }
         }));
-
   }
-
 }
 //STOCKAGE DU PRIX//
 var Price = []
