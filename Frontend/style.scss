@@ -1,10 +1,10 @@
 //FONT//
 .bodyfont {
-  font-family: "Courgette", cursive;
+  font-family: 'Rubik', sans-serif;
 }
 //couleurs//
-$gradient-top-left: linear-gradient(225deg, #463f3aff, #8a817cff, #bcb8b1ff, #f4f3eeff, #e0afa0ff);
-$gradient-radial: radial-gradient(#463f3aff, #8a817cff, #bcb8b1ff, #f4f3eeff, #e0afa0ff);
+$gradient-top-left: linear-gradient(0deg, #F2F3E2ff, #E7F1E6ff, #DDEEE9ff, #D2ECEDff, #C7EAF1ff, #BDE7F4ff, #B2E5F8ff);
+$gradient-radial: radial-gradient(#F2F3E2ff, #E7F1E6ff, #DDEEE9ff, #D2ECEDff, #C7EAF1ff, #BDE7F4ff, #B2E5F8ff);
 //Page index//
 .card {
   margin: 40px;

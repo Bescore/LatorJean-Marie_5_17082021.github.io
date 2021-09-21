@@ -8,7 +8,7 @@ if (document.getElementById("mouv")) {
           AffichageCamera += `<li   class="card cardtransfo" >
                 <img class="card-img-top" src="${camera.imageUrl}" alt="Appareil photo">
                 <a href="produit.html?article=${camera._id}"  class="stretched-link card-body">
-                  <p class="card-text">${"Modèle :" + " " + camera.name}</p>
+                  <p class="card-text text-dark">${"Modèle :" + " " + camera.name}</p>
                 </a>
               </li>`;
         }
@@ -60,8 +60,16 @@ if (document.getElementById("mouv2")) {
 
 //CHOISIR PRODUIT PAGE PRODUIT//
 function isclicked() {
-  localStorage.setItem(id, id);
-  alert('vous avez choisi ce produit');
+  if (localStorage.getItem(id)) {
+    let base = parseInt((localStorage.getItem(id)))
+    localStorage.setItem(id, ++base);
+    alert('vous en choisissez un de plus');
+  } else {
+    localStorage.setItem(id, 1)
+    alert('vous avez sélectionné ce produit')
+  }
+
+
 }
 //DELETE ONE ITEM PAGE PRODUIT//
 function deleletItem() {
@@ -91,7 +99,7 @@ function allStorage() {
   var AffichageCamera = "";
   var somme = 0;
   for (let i = 0; i < localStorage.length; i++) {
-    values.push(localStorage.getItem(localStorage.key(i)));
+    values.push(Object.keys(localStorage)[i]);
 
     fetch(`http://localhost:3000/api/cameras/${values[i]}`)
       .then(Resultatcamera => Resultatcamera.json()
@@ -100,8 +108,8 @@ function allStorage() {
             AffichageCamera += `<div   class="card cardmouv cardpic">
           <img class="card-img-top" src="${cameras.imageUrl}" alt="Appareil photo">
           <a href="produit.html?article=${cameras._id}" style="text-decoration:none" class=" stretched-link card-body">
-            <p class="card-text my-1">${"Modèle :" + " " + cameras.name}</p>
-            <p  class="card-text"><span>Prix :</span>${" " + (cameras.price / 100) + " " + "€"}</p>
+            <p class="card-text my-1 text-dark">${"Modèle :" + " " + cameras.name}</p>
+            <p  class="card-text text-dark"><span>Prix :</span>${" " + (cameras.price / 100) + " " + "€"}</p>
           </a>
         </div>`;
             document.getElementById("mouv3").innerHTML = AffichageCamera;
@@ -143,6 +151,19 @@ function validAdress(x, id) {
     let Nonvalide = '<p id="nonvalide" class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
     document.getElementById(id).innerHTML = Nonvalide
     document.getElementById("adress").value = ""
+  }
+}
+
+//REGEX DE VALIDATION EMAIL//
+function validMail(x, id) {
+  if (/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(x)) {
+    let valide = '<p class="text-success fs-6">Valide !</p>'
+    document.getElementById(id).innerHTML = valide
+  } else {
+    let Nonvalide = '<p id="nonvalide" class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
+    document.getElementById(id).innerHTML = Nonvalide
+    document.getElementById("email").value = ""
+
   }
 }
 
@@ -201,9 +222,9 @@ const Email = document.getElementById("email");
 if (document.getElementById("mouv3")) {
   Email.addEventListener('change', getemail);
   function getemail() {
+    validMail(Email.value, "validate4");
     console.log(Email.value)
     contact["email"] = `${Email.value}`
-
   }
 }
 //formulaire//
