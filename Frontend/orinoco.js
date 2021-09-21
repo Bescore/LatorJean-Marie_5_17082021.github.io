@@ -47,13 +47,23 @@ if (document.getElementById("mouv2")) {
         <button id=${data2._id}  type="submit" onclick="deleletItem(id)" class="btn btn-primary btn-sm touch ">Supprimer du panier</button>
       </div>
     </div>`;
-        //boucle pour les lentilles//
+        
+        let quantity = `<div class="value text-center text-warning fs-4">Quantité: ${localStorage.getItem(id)}</div>`
+        let Notincart=`<div class="value text-center text-warning fs-4" >Ce produit n'est pas dans votre panier</div>`
+        
+    //boucle pour les lentilles//
 
         for (let lense of (data2.lenses)) {
           Displaylenses += `<option value="${lense}">${lense}</option>`
         };
         document.getElementById("mouv2").innerHTML = affichage2;
         document.getElementById("lense-select").innerHTML = Displaylenses;
+        
+        if (localStorage.getItem(id) ==null) {
+          document.getElementById("quantity").innerHTML = Notincart;
+        } else {
+          document.getElementById("quantity").innerHTML = quantity;
+        }
       }))
 };
 
@@ -61,12 +71,14 @@ if (document.getElementById("mouv2")) {
 //CHOISIR PRODUIT PAGE PRODUIT//
 function isclicked() {
   if (localStorage.getItem(id)) {
-    let base = parseInt((localStorage.getItem(id)))
-    localStorage.setItem(id, ++base);
+    let Base = parseInt((localStorage.getItem(id)))
+    localStorage.setItem(id, ++Base);
     alert('vous en choisissez un de plus');
+    reloadPage();
   } else {
     localStorage.setItem(id, 1)
     alert('vous avez sélectionné ce produit')
+    reloadPage();
   }
 
 
@@ -75,6 +87,7 @@ function isclicked() {
 function deleletItem() {
   localStorage.removeItem(id, id);
   alert('vous avez enlevé ce produit du panier')
+  reloadPage();
 };
 //DELETE LAST ITEM PAGE PANIER//
 function deleteLastitem() {
@@ -132,7 +145,7 @@ var Price = []
 //REGEX DE VALIDATION//
 function isValidated(x, id) {
   if (/^[a-zA-z\s]+$/.test(x)) {
-    let valide = '<p class="text-success fs-6">Valide !</p>'
+    let valide = '<p class=" alert alert-success fs-6">Valide !</p>'
     document.getElementById(id).innerHTML = valide
   } else {
     let Nonvalide = '<p id="nonvalide" class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
@@ -143,7 +156,7 @@ function isValidated(x, id) {
 //REGEX DE VALIDATION ADRESS//
 function validAdress(x, id) {
   if (/[0-9\\\/# ,a-zA-Z]+[ ,]+[0-9\\\/#, a-zA-Z]{1,}/.test(x)) {
-    let valide = '<p class="text-success fs-6">Valide !</p>'
+    let valide = '<p class="alert alert-success fs-6">Valide !</p>'
     document.getElementById(id).innerHTML = valide
   } else {
     let Nonvalide = '<p id="nonvalide" class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
@@ -155,7 +168,7 @@ function validAdress(x, id) {
 //REGEX DE VALIDATION EMAIL//
 function validMail(x, id) {
   if (/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(x)) {
-    let valide = '<p class="text-success fs-6">Valide !</p>'
+    let valide = '<p class=" alert alert-success fs-6">Valide !</i></p>'
     document.getElementById(id).innerHTML = valide
   } else {
     let Nonvalide = '<p id="nonvalide" class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
@@ -293,3 +306,5 @@ function Displayprice() {
   }
 }
 Displayprice();
+
+

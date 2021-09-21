@@ -87,4 +87,11 @@ body {
   background-color: #3991b4;
   border-radius: 50%;
 }
+
+.alert {
+  margin-bottom: 1px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0px 15px;
+}
 /*# sourceMappingURL=style.css.map */
