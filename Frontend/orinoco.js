@@ -1,6 +1,16 @@
+//HOSTING DE L'APP//
+
+if (location.hostname === "127.0.0.1") {
+ var Urlapi="http://localhost:3000"
+console.log(Urlapi)
+} else {
+  var Urlapi ="https://secret-cliffs-34868.herokuapp.com"
+}
+
+
 //RÉCUPÉRATION DES INFORMATIONS DE L'API ET AFFICHAGE DE RESULTAT EN HTML//
 if (document.getElementById("mouv")) {
-  fetch("http://localhost:3000/api/cameras")
+  fetch(`${Urlapi}/api/cameras`)
     .then(Resultatcamera => Resultatcamera.json()
       .then(cameras => {
         let AffichageCamera = `<ul style="display:flex; flex-wrap:wrap; margin:auto; align-items : center;justify-content:center;">`;
