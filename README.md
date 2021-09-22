@@ -23,4 +23,4 @@ Suivre les instructions pour faire fonctionner l'API, d'ici là j'aurai peut êt
 C'est ma "première fois" avec Javascript, un projet vraiment compliqué pour un débutant, réalisé pas sans mal..
 C'est un site réalisé presque entièrement en Javascript !
 
-La branche "main" contient le projet structuré tel que je l'ais construit, et la branche application est la branche permettant de deployer le projet en github pages et donc de pouvoir l'afficher sans que l'utilisateur ait à cloner le repo !
+La branche "main" contient le projet structuré tel que je l'ais construit, et la branche application est la branche permettant de deployer le projet en github pages par l'intermédiare d'heroku et donc de pouvoir l'afficher sans que l'utilisateur ait à cloner le repo pour demarrer l'api !
