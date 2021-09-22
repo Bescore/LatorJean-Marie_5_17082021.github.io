@@ -1,10 +1,10 @@
 //HOSTING DE L'APP//
 
 if (location.hostname === "127.0.0.1") {
- var Urlapi="http://localhost:3000"
-console.log(Urlapi)
+  var Urlapi = "http://localhost:3000"
+  console.log(Urlapi)
 } else {
-  var Urlapi ="https://secret-cliffs-34868.herokuapp.com"
+  var Urlapi = "https://secret-cliffs-34868.herokuapp.com"
 }
 
 
@@ -169,7 +169,7 @@ function validAdress(x, id) {
     let valide = '<p class="alert alert-success fs-6">Valide !</p>'
     document.getElementById(id).innerHTML = valide
   } else {
-    let Nonvalide = '<p id="nonvalide" class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
+    let Nonvalide = '<p id="nonvalide" class="alert alert-danger fs-6">Non valide !</p>'
     document.getElementById(id).innerHTML = Nonvalide
     document.getElementById("adress").value = ""
   }
@@ -181,7 +181,7 @@ function validMail(x, id) {
     let valide = '<p class=" alert alert-success fs-6">Valide !</i></p>'
     document.getElementById(id).innerHTML = valide
   } else {
-    let Nonvalide = '<p id="nonvalide" class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
+    let Nonvalide = '<p id="nonvalide" class="alert alert-danger fs-6">Non valide !</p>'
     document.getElementById(id).innerHTML = Nonvalide
     document.getElementById("email").value = ""
 
