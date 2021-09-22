@@ -158,7 +158,7 @@ function isValidated(x, id) {
     let valide = '<p class=" alert alert-success fs-6">Valide !</p>'
     document.getElementById(id).innerHTML = valide
   } else {
-    let Nonvalide = '<p id="nonvalide" class="alert alert-danger fs-6">Non valide ! veuillez remplir</p>'
+    let Nonvalide = '<p id="nonvalide" class="alert alert-danger fs-6">Non valide !</p>'
     document.getElementById(id).innerHTML = Nonvalide
   }
 }
