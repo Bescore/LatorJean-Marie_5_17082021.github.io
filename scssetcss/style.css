@@ -96,6 +96,11 @@ body {
   padding: 0px 15px;
 }
 
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
 @media (max-width: 767px) {
   .text-xs-center {
     text-align: center;

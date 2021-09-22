@@ -122,7 +122,7 @@ function allStorage() {
           <img class="card-img-top" src="${cameras.imageUrl}" alt="Appareil photo">
           <a href="produit.html?article=${cameras._id}" style="text-decoration:none" class=" stretched-link card-body">
             <p class="card-text my-1 text-dark">${"Modèle :" + " " + cameras.name}</p>
-            <p  class="card-text text-dark"><span>Prix :</span>${" " + (cameras.price / 100) + " " + "€"}</p>
+            <p  class="card-text text-dark "><span>Prix :</span>${" " + (cameras.price / 100) + " " + "€"}</p>
             <p class="quantity" >(${(localStorage.getItem(cameras._id))})</p>
           </a>
         </div>`;

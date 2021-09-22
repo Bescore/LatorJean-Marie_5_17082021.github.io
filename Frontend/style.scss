@@ -88,6 +88,12 @@ body {
   line-height: 30px;
   padding: 0px 15px;
 }
+.spinner-border{
+  width: 3rem;
+  height: 3rem;
+}
+
+
 @media (max-width: 767px) {
   // Align text to center.
   .text-xs-center {
