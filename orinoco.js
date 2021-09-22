@@ -114,7 +114,7 @@ function deleteAllitem() {
 };
 //reloadPage//
 function reloadPage() {
-  window.location.reload();
+  document.location.reload();
 }
 //RECUPERER LE LOCALSTORAGE EN TABLEAU SUR LA PAGE PANIER//
 function allStorage() {
