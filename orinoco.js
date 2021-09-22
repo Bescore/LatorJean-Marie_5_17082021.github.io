@@ -42,7 +42,7 @@ const id = getArticleId()
 
 //afficher l'article correspond a son id sur la page produit//
 if (document.getElementById("mouv2")) {
-  fetch(`http://localhost:3000/api/cameras/${id}`)
+  fetch(`${Urlapi}/api/cameras/${id}`)
     .then(resultat => resultat.json()
       .then(data2 => {
         let Displaylenses
@@ -124,7 +124,7 @@ function allStorage() {
   for (let i = 0; i < localStorage.length; i++) {
     values.push(Object.keys(localStorage)[i]);
 
-    fetch(`http://localhost:3000/api/cameras/${values[i]}`)
+    fetch(`${Urlapi}/api/cameras/${values[i]}`)
       .then(Resultatcamera => Resultatcamera.json()
         .then(cameras => {
           if (document.getElementById("mouv3")) {

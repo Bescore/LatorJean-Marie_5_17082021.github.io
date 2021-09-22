@@ -55,7 +55,7 @@
 }
 
 body {
-  background: url("/Frontend/photo.jpg") no-repeat fixed center;
+  background: url("/photo.jpg") no-repeat fixed center;
   background-size: cover;
 }
 
