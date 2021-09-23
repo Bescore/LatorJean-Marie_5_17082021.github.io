@@ -269,7 +269,7 @@ var products = Object.keys(localStorage)
 //APPEL POST À L'API//
 function Forms() {
   event.preventDefault();
-  fetch("http://localhost:3000/api/cameras/order", {
+  fetch(`${Urlapi}/api/cameras/order`, {
     method: "POST",
     body: JSON.stringify({ contact, products }),
     headers: {
