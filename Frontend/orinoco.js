@@ -142,7 +142,7 @@ function allStorage() {
 //STOCKAGE DU PRIX//
 var Price = []
 
-//REGEX DE VALIDATION//
+//REGEX DE VALIDATION TERMES GENERIQUES//
 function isValidated(x, id) {
   if (/^[a-zA-z\s]+$/.test(x)) {
     let valide = '<p class=" alert alert-success fs-6">Valide !</p>'
@@ -238,7 +238,7 @@ if (document.getElementById("mouv3")) {
     contact["email"] = `${Email.value}`
   }
 }
-//formulaire//
+//FORMULAIRE//
 
 //CREATION DE L'OBJET CONTACT//
 
