@@ -290,7 +290,9 @@ function Forms() {
         }
       }
 
-      ));
+    )
+      .catch(function () { console.log("problème au niveau du fetch d'envoie de commande") })
+    );
 
 
 
