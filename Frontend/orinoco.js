@@ -24,13 +24,13 @@ if (document.getElementById("mouv")) {
 
 
 
-//recuperer l'id du produit via l'url//
+//RECUPERER L'ID DU PRODUIT VIA L'URL//
 function getArticleId() {
   return new URL(location.href).searchParams.get("article");
 }
 const id = getArticleId()
 
-//afficher l'article correspond a son id sur la page produit//
+//AFFICHER L'ARTICLE CORRESPOND A SON ID SUR LA PAGE PRODUIT//
 if (document.getElementById("mouv2")) {
   fetch(`http://localhost:3000/api/cameras/${id}`)
     .then(resultat => resultat.json()
@@ -51,7 +51,7 @@ if (document.getElementById("mouv2")) {
         let quantity = `<div class="value text-center text-warning fs-4">Quantité: ${localStorage.getItem(id)}</div>`
         let Notincart = `<div class="value text-center text-warning fs-4" >Ce produit n'est pas dans votre panier</div>`
 
-        //boucle pour les lentilles//
+        //BOUCLE POUR LES LENTILLES//
 
         for (let lense of (data2.lenses)) {
           Displaylenses += `<option value="${lense}">${lense}</option>`
