@@ -130,7 +130,6 @@ function allStorage() {
             //COUT TOTAL//
             somme += (localStorage.getItem(cameras._id)) * cameras.price / 100;
             Price.push(somme)
-            console.log(Price)
             document.getElementById("total").innerHTML = "Coût total :" + " " + somme + "€";
             //STOCKAGE DU COÛT TOTAL DANS LE SESSION STORAGE//
             sessionStorage.setItem("prix", somme);
@@ -234,7 +233,6 @@ if (document.getElementById("mouv3")) {
   Email.addEventListener('change', getemail);
   function getemail() {
     validMail(Email.value, "validate4");
-    console.log(Email.value)
     contact["email"] = `${Email.value}`
   }
 }
@@ -259,28 +257,29 @@ var products = Object.keys(localStorage)
 //APPEL POST À L'API//
 function Forms() {
   event.preventDefault();
-  fetch("http://localhost:3000/api/cameras/order", {
+  fetch("http://localhost:3000/api/cameras/order1", {
     method: "POST",
     body: JSON.stringify({ contact, products }),
     headers: {
       "Content-Type": "application/json",
     }
   })
-    .then(Resultat => Resultat.json()
-      .then(POST => {
-        console.log(POST)
-        sessionStorage.setItem(`Idorder`, `${POST.orderId}`)
-        if (document.getElementById("nonvalide")) {
-          alert('Le formulaire est invalide')
-        } else if (POST.orderId && (sessionStorage.getItem("prix")) && isEmpty !== false) {
-          window.location.href = "commande.html"
+    .then(Resultat => Resultat.json())
+    .then(POST => {
+      console.log(POST)
+      sessionStorage.setItem(`Idorder`, `${POST.orderId}`)
+      if (document.getElementById("nonvalide")) {
+        alert('Le formulaire est invalide')
+      } else if (POST.orderId && (sessionStorage.getItem("prix")) && isEmpty !== false) {
+        window.location.href = "commande.html"
 
-        } else {
-          alert('Veuillez selectionner un produit et/ou remplir le formulaire')
-        }
+      } else {
+        alert('Veuillez selectionner un produit et/ou remplir le formulaire')
       }
+    }
 
-      ));
+    )
+    .catch(function () { console.log("erreur lors de l'envoi de la commande") });
 
 
 
