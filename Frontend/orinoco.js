@@ -30,6 +30,7 @@ function getArticleId() {
 }
 const id = getArticleId()
 
+
 //AFFICHER L'ARTICLE CORRESPOND A SON ID SUR LA PAGE PRODUIT//
 if (document.getElementById("mouv2")) {
   fetch(`http://localhost:3000/api/cameras/${id}`)
@@ -103,19 +104,19 @@ function deleteAllitem() {
   sessionStorage.removeItem("Idorder")
   sessionStorage.removeItem("prix")
 };
-//reloadPage//
+//RELOADPAGE//
 function reloadPage() {
   document.location.reload();
 }
+
 //RECUPERER LE LOCALSTORAGE EN TABLEAU SUR LA PAGE PANIER//
 function allStorage() {
-  var values = [];
   var AffichageCamera = "";
   var somme = 0;
   for (let i = 0; i < localStorage.length; i++) {
-    values.push(Object.keys(localStorage)[i]);
+    console.log(Object.keys(localStorage)[i])
 
-    fetch(`http://localhost:3000/api/cameras/${values[i]}`)
+    fetch(`http://localhost:3000/api/cameras/${Object.keys(localStorage)[i]}`)
       .then(Resultatcamera => Resultatcamera.json())
         .then(cameras => {
           if (document.getElementById("mouv3")) {
@@ -130,7 +131,6 @@ function allStorage() {
             document.getElementById("mouv3").innerHTML = AffichageCamera;
             //COUT TOTAL//
             somme += (localStorage.getItem(cameras._id)) * cameras.price / 100;
-            Price.push(somme)
             document.getElementById("total").innerHTML = "Coût total :" + " " + somme + "€";
             //STOCKAGE DU COÛT TOTAL DANS LE SESSION STORAGE//
             sessionStorage.setItem("prix", somme);
@@ -140,8 +140,6 @@ function allStorage() {
     .catch(function(){console.log("erreur lors de la requête GET")})
   }
 }
-//STOCKAGE DU PRIX//
-var Price = []
 
 //REGEX DE VALIDATION TERMES GENERIQUES//
 function isValidated(x, id) {
@@ -240,7 +238,7 @@ if (document.getElementById("mouv3")) {
 }
 //FORMULAIRE//
 
-//CREATION DE L'OBJET CONTACT//
+//CREATION DE L'OBJET CONTACT VIDE//
 
 var contact = {
   firstName: "",
@@ -249,9 +247,8 @@ var contact = {
   city: "",
   email: ""
 }
-//CONSTANT QUI VERIFIE SI L'OBJECT CONTACT EST VIDE OU PAS //
+//CONSTANT QUI VERIFIE SI L'OBJECT CONTACT EST VIDE //
 const isEmpty = Object.values(contact).every(x => x === null || x === '');
-
 //RECUPÉRATION DES OBJECT DANS LE LOCALSTORAGE POUR L'APPEL POST//
 var products = Object.keys(localStorage)
 
