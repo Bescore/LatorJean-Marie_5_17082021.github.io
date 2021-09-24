@@ -16,7 +16,7 @@ if (document.getElementById("mouv")) {
         document.getElementById("mouv").innerHTML = AffichageCamera;
 
       })
-      .catch(function () { console.log('ne peut fetch la page index car vous êtes sur la mauvaise page') }
+      .catch(function () { console.log('erreur lors de la requête GET') }
       ));
 
 }
@@ -33,10 +33,10 @@ const id = getArticleId()
 //AFFICHER L'ARTICLE CORRESPOND A SON ID SUR LA PAGE PRODUIT//
 if (document.getElementById("mouv2")) {
   fetch(`http://localhost:3000/api/cameras/${id}`)
-    .then(resultat => resultat.json()
-      .then(data2 => {
-        let Displaylenses
-        let affichage2 = `<div class="card cart-card" >
+    .then(resultat => resultat.json())
+    .then(data2 => {
+      let Displaylenses
+      let affichage2 = `<div class="card cart-card" >
       <img class="card-img-top" src="${data2.imageUrl}" alt="Appareil photo">
       <div style="display:flex;justify-content-center;flex-direction:column" class="card-body">
         <p  class="card-text"><span>Modèle :</span>${" " + " " + data2.name}</p>
@@ -48,23 +48,24 @@ if (document.getElementById("mouv2")) {
       </div>
     </div>`;
 
-        let quantity = `<div class="value text-center text-warning fs-4">Quantité: ${localStorage.getItem(id)}</div>`
-        let Notincart = `<div class="value text-center text-warning fs-4" >Ce produit n'est pas dans votre panier</div>`
+      let quantity = `<div class="value text-center text-warning fs-4">Quantité: ${localStorage.getItem(id)}</div>`
+      let Notincart = `<div class="value text-center text-warning fs-4" >Ce produit n'est pas dans votre panier</div>`
 
-        //BOUCLE POUR LES LENTILLES//
+      //BOUCLE POUR LES LENTILLES//
 
-        for (let lense of (data2.lenses)) {
-          Displaylenses += `<option value="${lense}">${lense}</option>`
-        };
-        document.getElementById("mouv2").innerHTML = affichage2;
-        document.getElementById("lense-select").innerHTML = Displaylenses;
+      for (let lense of (data2.lenses)) {
+        Displaylenses += `<option value="${lense}">${lense}</option>`
+      };
+      document.getElementById("mouv2").innerHTML = affichage2;
+      document.getElementById("lense-select").innerHTML = Displaylenses;
 
-        if (localStorage.getItem(id) == null) {
-          document.getElementById("quantity").innerHTML = Notincart;
-        } else {
-          document.getElementById("quantity").innerHTML = quantity;
-        }
-      }))
+      if (localStorage.getItem(id) == null) {
+        document.getElementById("quantity").innerHTML = Notincart;
+      } else {
+        document.getElementById("quantity").innerHTML = quantity;
+      }
+    })
+  .catch(function(){console.log("erreur lors de l'envoie de la requête get")})
 };
 
 
@@ -115,7 +116,7 @@ function allStorage() {
     values.push(Object.keys(localStorage)[i]);
 
     fetch(`http://localhost:3000/api/cameras/${values[i]}`)
-      .then(Resultatcamera => Resultatcamera.json()
+      .then(Resultatcamera => Resultatcamera.json())
         .then(cameras => {
           if (document.getElementById("mouv3")) {
             AffichageCamera += `<div   class="card cardmouv cardpic">
@@ -135,7 +136,8 @@ function allStorage() {
             sessionStorage.setItem("prix", somme);
 
           }
-        }));
+        })
+    .catch(function(){console.log("erreur lors de la requête GET")})
   }
 }
 //STOCKAGE DU PRIX//
