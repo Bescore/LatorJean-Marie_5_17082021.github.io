@@ -119,7 +119,7 @@ function reloadPage() {
 //RECUPERER LE LOCALSTORAGE EN TABLEAU SUR LA PAGE PANIER//
 function allStorage() {
   var AffichageCamera = "";
-  var somme = 0; 
+  var somme = 0;
   for (let i = 0; i < localStorage.length; i++) {
 
     fetch(`${Urlapi}/api/cameras/${Object.keys(localStorage)}`)
