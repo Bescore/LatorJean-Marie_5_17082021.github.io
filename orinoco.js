@@ -119,7 +119,7 @@ function reloadPage() {
 //RECUPERER LE LOCALSTORAGE EN TABLEAU SUR LA PAGE PANIER//
 function allStorage() {
   var AffichageCamera = "";
-  var somme = 0;d
+  var somme = 0; 
   for (let i = 0; i < localStorage.length; i++) {
 
     fetch(`${Urlapi}/api/cameras/${Object.keys(localStorage)}`)
@@ -288,7 +288,7 @@ function Forms() {
         }
       }
 
-    )
+      )
       .catch(function () { console.log("problème au niveau du fetch d'envoie de commande") })
     );
 
