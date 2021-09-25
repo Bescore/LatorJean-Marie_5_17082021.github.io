@@ -118,13 +118,11 @@ function reloadPage() {
 }
 //RECUPERER LE LOCALSTORAGE EN TABLEAU SUR LA PAGE PANIER//
 function allStorage() {
-  var values = [];
   var AffichageCamera = "";
-  var somme = 0;
+  var somme = 0;d
   for (let i = 0; i < localStorage.length; i++) {
-    values.push(Object.keys(localStorage)[i]);
 
-    fetch(`${Urlapi}/api/cameras/${values[i]}`)
+    fetch(`${Urlapi}/api/cameras/${Object.keys(localStorage)}`)
       .then(Resultatcamera => Resultatcamera.json()
         .then(cameras => {
           if (document.getElementById("mouv3")) {
