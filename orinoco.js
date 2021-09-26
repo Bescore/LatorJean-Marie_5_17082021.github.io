@@ -122,11 +122,11 @@ function allStorage() {
   var somme = 0;
   for (let i = 0; i < localStorage.length; i++) {
 
-    fetch(`${Urlapi}/api/cameras/${Object.keys(localStorage)}`)
+    fetch(`${Urlapi}/api/cameras/${Object.keys(localStorage)[i]}`)
       .then(Resultatcamera => Resultatcamera.json()
         .then(cameras => {
           if (document.getElementById("mouv3")) {
-            AffichageCamera += `<div   class="card cardmouv cardpic">
+            AffichageCamera += `<div   class="card cardmouv cardpic cardtransfo">
           <img class="card-img-top" src="${cameras.imageUrl}" alt="Appareil photo">
           <a href="produit.html?article=${cameras._id}" style="text-decoration:none" class=" stretched-link card-body">
             <p class="card-text my-1 text-dark">${"Modèle :" + " " + cameras.name}</p>
