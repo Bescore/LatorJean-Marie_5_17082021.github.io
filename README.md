@@ -23,4 +23,6 @@ Suivre les instructions pour faire fonctionner l'API, d'ici là j'aurai peut êt
 C'est ma "première fois" avec Javascript, un projet vraiment compliqué pour un débutant, réalisé pas sans mal..
 C'est un site réalisé presque entièrement en Javascript !
 
-La branche "main" contient le projet structuré tel que je l'ais construit, et la branche application est la branche permettant de deployer le projet en github pages par l'intermédiare d'heroku et donc de pouvoir l'afficher sans que l'utilisateur ait à cloner le repo pour demarrer l'api ! Si cela ne fonctionne pas (à caue des limitations heroku), il faudra passer par la méthode classique, cloner le repo,  suivre les instructions plus haut qui concerne le dossier "Backend", demarrer le serveur backend et ouvrir l'index qui se trouve dans le dossier frontend.
+Les premières instructions concernent le dossier "Backend" de cette branche.Ensuite , simplement ouvrir le contenu du dossier "frontend".
+
+La branche "main" contient le projet structuré tel que je l'ais construit, et la branche application est la branche permettant de deployer le projet en github pages par l'intermédiare d'heroku et donc de pouvoir l'afficher sans que l'utilisateur ait à cloner le repo pour demarrer l'api ! Si cela ne fonctionne pas (à cause des limitations heroku), il faudra passer par la méthode classique, cloner le repo,  suivre les instructions plus haut qui concerne le dossier "Backend", demarrer le serveur backend et ouvrir l'index.
